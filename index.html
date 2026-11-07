@@ -1,464 +1,943 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="cyber-theme">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Sivaramakrishnan - Front End Developer specializing in HTML, CSS, JavaScript, and Node.js. B.Tech EEE graduate with a passion for creating modern web applications.">
-    <meta name="keywords" content="Front End Developer, Web Developer, HTML, CSS, JavaScript, Node.js, Portfolio">
+        content="Sivaramakrishnan // Cybernetic Hologram Portfolio — Frontend Developer & AI Designer. Volumetric Holographic HUD Terminal.">
+    <meta name="keywords"
+        content="Sivaramakrishnan, Cybernetic Frontend Architect, Generative AI Designer, Three.js, WebGL Hologram, Spatial UI, Cyberpunk Portfolio, React, Node.js">
     <meta name="author" content="Sivaramakrishnan">
 
-    <!-- Open Graph Meta Tags -->
+    <!-- Open Graph / Social Meta -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Sivaramakrishnan - Front End Developer">
+    <meta property="og:title" content="SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL">
     <meta property="og:description"
-        content="Professional portfolio showcasing front-end development skills and projects">
+        content="CYBERNETIC FRONTEND ARCHITECT × GENERATIVE AI DESIGNER. High-performance web interfaces & volumetric spatial engineering.">
     <meta property="og:image" content="./assets/profile.jpg">
-    <meta property="og:url" content="">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sivaramakrishnan - Front End Developer">
-    <meta name="twitter:description"
-        content="Professional portfolio showcasing front-end development skills and projects">
-    <meta name="twitter:image" content="./assets/profile.jpg">
+    <!-- Security Headers & Directives -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <title>Sivaramakrishnan | Front End Developer</title>
+    <title>SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL [HOLO.EMITTER: ONLINE]</title>
 
-    <!-- Font: Inter from Google Fonts -->
+    <!-- Google Fonts: Orbitron (Headings), JetBrains Mono (Telemetry/Data), Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Cybernetic Hologram Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <!-- Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">Sivaramakrishnan</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#hero" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="cyber-void">
+    <!-- Scanline Shaders & Digital Noise Overlay -->
+    <div class="hologram-scanlines" aria-hidden="true"></div>
+    <div class="laser-vignette" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-image-wrapper">
-                    <img src="./assets/profile.jpg" alt="Sivaramakrishnan - Front End Developer" class="hero-image">
+    <!-- Laser Cursor Tracker, Reticle & Laser Coordinate Ray -->
+    <div class="hud-cursor-reticle" id="hudCursor" aria-hidden="true">
+        <div class="reticle-ring"></div>
+        <div class="reticle-crosshair"></div>
+        <div class="reticle-coords" id="reticleCoords">X:00.00 Y:00.00 Z:00.00</div>
+    </div>
+
+    <!-- Laser-Thin Glowing Progress Coordinate Line -->
+    <div class="cyber-laser-progress" id="laserProgress" aria-hidden="true"></div>
+
+    <!-- Viewport HUD Technical Corner Brackets -->
+    <div class="viewport-hud-frame" aria-hidden="true">
+        <div class="hud-corner top-left"><span>[ + ] LOC_01</span></div>
+        <div class="hud-corner top-right"><span>[ - ] HOLO.SYS_2026</span></div>
+        <div class="hud-corner bottom-left"><span>[ + ] SECTOR_IND</span></div>
+        <div class="hud-corner bottom-right"><span>[ - ] SEC.LEVEL.01</span></div>
+    </div>
+
+    <!-- ===================================
+         HUD VOLUMETRIC NAVIGATION DOCK
+         =================================== -->
+    <header class="hud-header">
+        <nav class="hud-nav-bar" aria-label="Volumetric HUD Navigation">
+            <a href="#hero" class="hud-brand" aria-label="Sivaramakrishnan Terminal Root">
+                <div class="brand-hex">
+                    <span class="hex-core">SR</span>
+                    <span class="hex-border"></span>
                 </div>
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Sivaramakrishnan</span>
+                <div class="brand-text">
+                    <span class="brand-id">SIVARAMAKRISHNAN</span>
+                    <span class="brand-meta"><span class="neon-dot"></span> HOLO.EMITTER // FREQ: 144.8 MHz</span>
+                </div>
+            </a>
+
+            <div class="hud-nav-menu" id="hudNavMenu">
+                <ul class="hud-nav-links">
+                    <li><a href="#hero" class="hud-link active"><span class="hud-bracket">[</span>ROOT<span class="hud-bracket">]</span></a></li>
+                    <li><a href="#identity" class="hud-link"><span class="hud-bracket">[</span>DOSSIER<span class="hud-bracket">]</span></a></li>
+                    <li><a href="#tech-matrix" class="hud-link"><span class="hud-bracket">[</span>TECH_MATRIX<span class="hud-bracket">]</span></a></li>
+                    <li><a href="#projects-showcase" class="hud-link"><span class="hud-bracket">[</span>TRANSMISSIONS<span class="hud-bracket">]</span></a></li>
+                    <li><a href="#transmission-deck" class="hud-link"><span class="hud-bracket">[</span>SIGNAL_DECK<span class="hud-bracket">]</span></a></li>
+                </ul>
+            </div>
+
+            <div class="hud-actions">
+                <button class="hud-btn-icon" id="audioToggleBtn" title="Toggle Audio Telemetry [Key: M]" aria-label="Toggle Audio">
+                    <i class="fas fa-volume-high"></i>
+                </button>
+                <a href="#transmission-deck" class="hud-btn-cta">
+                    <span class="btn-bracket">[</span>
+                    <span class="btn-label">TRANSMIT_SIGNAL</span>
+                    <span class="btn-bracket">]</span>
+                </a>
+                <button class="hud-mobile-toggle" id="hudMobileToggle" aria-label="Toggle Navigation Dock" aria-expanded="false">
+                    <span class="hud-bar"></span>
+                    <span class="hud-bar"></span>
+                    <span class="hud-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="volumetric-terminal-root">
+        <!-- ===================================
+             3D HOLOGRAPHIC PROJECTOR (HERO SECTION)
+             =================================== -->
+        <section class="hud-section hero-projector-section" id="hero">
+            <!-- 3D Holographic Projector Stage with Volumetric Light Cone -->
+            <div class="hologram-projector-stage" id="projectorStage">
+                <!-- Volumetric Holographic Light Projection Cone -->
+                <div class="volumetric-light-cone" aria-hidden="true">
+                    <div class="cone-gradient"></div>
+                    <div class="cone-laser-lines"></div>
+                </div>
+
+                <!-- Three.js 3D Hologram Canvas -->
+                <canvas id="hologram3DCanvas" class="hologram-canvas"></canvas>
+
+                <!-- Circular Metallic Projector Base Ring -->
+                <div class="projector-emitter-base" aria-hidden="true">
+                    <div class="emitter-core-glow"></div>
+                    <div class="emitter-metallic-rim"></div>
+                    <div class="emitter-laser-ticks"></div>
+                </div>
+
+                <!-- Live Emitter Telemetry Stamps -->
+                <div class="projector-telemetry-overlay" aria-hidden="true">
+                    <div class="telemetry-box">
+                        <span class="t-tag">[COORD_STAMP]:</span>
+                        <span class="t-val cyan" id="vectorCoords">X:+00.00 Y:+00.00 Z:+01.00</span>
+                    </div>
+                    <div class="telemetry-box">
+                        <span class="t-tag">[EMITTER_STATUS]:</span>
+                        <span class="t-val teal">144.8 MHz // VOLUMETRIC_ACTIVE</span>
+                    </div>
+                    <div class="telemetry-box">
+                        <span class="t-tag">[HOLO_MESH]:</span>
+                        <span class="t-val">POLYGONAL NODE MATRIX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Telemetry Overlay Content -->
+            <div class="hero-telemetry-content">
+                <div class="holo-status-pill">
+                    <span class="status-pulse-dot"></span>
+                    <span class="status-text">[HOLO.EMITTER: ONLINE // FREQ: 144.8 MHz]</span>
+                    <span class="status-divider">|</span>
+                    <span class="status-alert amber-txt">[SEC.LEVEL.01]</span>
+                </div>
+
+                <h1 class="hero-identity-headline">
+                    SIVARAMAKRISHNAN
                 </h1>
-                <p class="hero-subtitle">Front End Developer</p>
-                <p class="hero-description">
-                    Crafting beautiful and responsive web experiences with modern technologies
+
+                <div class="hero-specialization-badge">
+                    <span class="spec-bracket">[ + ]</span>
+                    <span class="spec-text">CYBERNETIC FRONTEND ARCHITECT × GENERATIVE AI DESIGNER</span>
+                    <span class="spec-bracket">[ - ]</span>
+                </div>
+
+                <p class="hero-mission-lead">
+                    Architecting high-performance volumetric web interfaces, zero-defect frontend systems, and intelligent generative AI design workflows with mathematical precision.
                 </p>
-                <div class="hero-buttons">
-                    <a href="./assets/resume.pdf" download class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download Resume
+
+                <!-- Hologram Projection Buttons -->
+                <div class="hero-projection-buttons">
+                    <a href="#projects-showcase" class="cyber-btn cyber-btn-primary">
+                        <span class="btn-laser-glow"></span>
+                        <span class="btn-bracket-left">[</span>
+                        <span class="btn-title">DEPLOY PROJECTS [TRANSMISSION 01]</span>
+                        <span class="btn-bracket-right">]</span>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i> Get in Touch
+
+                    <a href="./assets/resume.pdf" download="Sivaramakrishnan_CV.pdf" class="cyber-btn cyber-btn-secondary">
+                        <span class="btn-sweep-line"></span>
+                        <span class="btn-bracket-left">[</span>
+                        <span class="btn-title">DECRYPT CV [DATA PACKET]</span>
+                        <span class="btn-bracket-right">]</span>
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        Hello! I'm Sivaramakrishnan, a passionate Front End Developer with a strong foundation
-                        in creating modern, user-friendly web applications. I love turning ideas into reality
-                        through clean code and intuitive design.
-                    </p>
-                    <p>
-                        With expertise in HTML, CSS, JavaScript, and Node.js, I focus on building responsive
-                        and performant web applications that provide excellent user experiences across all devices.
-                        I'm constantly learning and exploring new technologies to stay current in the ever-evolving
-                        web development landscape.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <strong>Education</strong>
-                                <p>B.Tech in Electrical and Electronics Engineering</p>
-                                <p class="info-detail">70% | Strong foundation in problem-solving and analytical
-                                    thinking</p>
+                <!-- Micro Metric HUD Ticks -->
+                <div class="hero-telemetry-strip">
+                    <div class="strip-item">
+                        <span class="strip-lbl">TRANSMISSIONS:</span>
+                        <span class="strip-val cyan-txt">06 ACTIVE</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-lbl">HARDWARE LOGIC:</span>
+                        <span class="strip-val">B.TECH (EEE)</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-lbl">SPATIAL RENDER:</span>
+                        <span class="strip-val teal-txt">THREE.JS / WEBGL</span>
+                    </div>
+                    <div class="strip-item">
+                        <span class="strip-lbl">SYSTEM FREQ:</span>
+                        <span class="strip-val amber-txt">60.0 FPS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================
+             1. IDENTITY DOSSIER (ABOUT ME)
+             =================================== -->
+        <section class="hud-section identity-dossier-section" id="identity">
+            <div class="hud-section-header">
+                <div class="header-stamp">[DOSSIER_SYS: 01 // ARCHITECTURAL IDENTITY]</div>
+                <h2 class="header-title">IDENTITY <span class="cyan-neon">DOSSIER</span></h2>
+                <div class="header-laser-line"></div>
+            </div>
+
+            <div class="dossier-hologram-card bento-hud-card" data-tilt>
+                <div class="hud-corner-bracket tl">[ + ]</div>
+                <div class="hud-corner-bracket tr">[ - ]</div>
+                <div class="hud-corner-bracket bl">[ - ]</div>
+                <div class="hud-corner-bracket br">[ + ]</div>
+
+                <div class="dossier-grid-layout">
+                    <!-- Holographic ID Card: Profile Photo with Scanlines & Targeting Reticle -->
+                    <div class="holo-id-badge-col">
+                        <div class="holo-id-frame">
+                            <div class="targeting-reticle"></div>
+                            <div class="reticle-laser-axis x-axis"></div>
+                            <div class="reticle-laser-axis y-axis"></div>
+                            <div class="holo-photo-scanlines"></div>
+                            <img src="./assets/profile.jpg" alt="Sivaramakrishnan - Cybernetic Frontend Architect" class="holo-profile-img">
+                            <div class="holo-id-tag">
+                                <span>[OPERATOR_ID: SR-75]</span>
+                                <span class="teal-txt">ONLINE</span>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-code"></i>
-                            <div>
-                                <strong>Focus</strong>
-                                <p>Front End Development & Web Technologies</p>
+                    </div>
+
+                    <!-- Dossier Specifications & Narrative -->
+                    <div class="dossier-intel-col">
+                        <div class="intel-header">
+                            <h3 class="intel-name">SIVARAMAKRISHNAN</h3>
+                            <span class="intel-role">[SPECIALIST: CYBERNETIC FRONTEND &amp; SPATIAL AI]</span>
+                        </div>
+
+                        <div class="intel-spec-blocks">
+                            <!-- Engineering Metrics -->
+                            <div class="spec-block">
+                                <span class="spec-tag">[ENGINEERING_METRICS]:</span>
+                                <div class="spec-body">
+                                    <strong class="spec-heading">B.Tech in Electrical and Electronics Engineering (70%)</strong>
+                                    <p class="spec-desc">Framed as <em>"Core Analytical Systems &amp; Hardware Logic"</em>. Applied signal efficiency, electrical state equations, and algorithmic discipline directly to modern web architecture.</p>
+                                </div>
+                            </div>
+
+                            <!-- Mission Directive -->
+                            <div class="spec-block">
+                                <span class="spec-tag">[MISSION_DIRECTIVE]:</span>
+                                <div class="spec-body">
+                                    <strong class="spec-heading">Ultra-Responsive Web Interfaces &amp; Next-Gen AI Design Workflows</strong>
+                                    <p class="spec-desc">Bridging zero-defect front-end engineering with spatial 3D interactivity, volumetric styling, and dynamic LLM interface synthesis.</p>
+                                </div>
+                            </div>
+
+                            <!-- Core Principles -->
+                            <div class="spec-block">
+                                <span class="spec-tag">[SYSTEM_PARAMETERS]:</span>
+                                <div class="spec-body">
+                                    <div class="parameters-pills-row">
+                                        <span class="param-pill"><i class="fas fa-microchip"></i> Hardware Precision</span>
+                                        <span class="param-pill"><i class="fas fa-cube"></i> Volumetric 3D</span>
+                                        <span class="param-pill"><i class="fas fa-wand-magic-sparkles"></i> Generative AI Logic</span>
+                                        <span class="param-pill"><i class="fas fa-gauge-high"></i> &lt; 16.6ms Latency</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <div>
-                                <strong>Passion</strong>
-                                <p>Building clean, accessible, and performant web applications</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===================================
+             2. HOLOGRAPHIC TECH MATRIX (SKILLS)
+             =================================== -->
+        <section class="hud-section tech-matrix-section" id="tech-matrix">
+            <div class="hud-section-header">
+                <div class="header-stamp">[TELEMETRY_SYS: 02 // SECTOR CAPABILITIES]</div>
+                <h2 class="header-title">HOLOGRAPHIC <span class="cyan-neon">TECH MATRIX</span></h2>
+                <div class="header-laser-line"></div>
+            </div>
+
+            <!-- Floating Holographic Data Chips Organized by Sector -->
+            <div class="sectors-matrix-grid">
+
+                <!-- Sector Alpha: Frontend Core -->
+                <article class="sector-card bento-hud-card" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="sector-header">
+                        <span class="sector-badge cyan-txt">[SECTOR_ALPHA]</span>
+                        <span class="sector-status">100% OPERATIONAL</span>
+                    </div>
+                    <h3 class="sector-title">FRONTEND CORE</h3>
+                    <p class="sector-desc">Semantic, accessible, and reactive client architecture.</p>
+
+                    <div class="sector-chips-list">
+                        <div class="data-chip">
+                            <span class="chip-name">HTML5 Architecture</span>
+                            <span class="chip-metric">[ADV] 95%</span>
+                            <div class="chip-meter"><span style="width: 95%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">CSS3 / Tailwind Styling</span>
+                            <span class="chip-metric">[ADV] 92%</span>
+                            <div class="chip-meter"><span style="width: 92%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">JavaScript ES6+</span>
+                            <span class="chip-metric">[PRO] 90%</span>
+                            <div class="chip-meter"><span style="width: 90%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Responsive Design Architecture</span>
+                            <span class="chip-metric">[ADV] 94%</span>
+                            <div class="chip-meter"><span style="width: 94%;"></span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sector Beta: Runtime & Operations -->
+                <article class="sector-card bento-hud-card" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="sector-header">
+                        <span class="sector-badge teal-txt">[SECTOR_BETA]</span>
+                        <span class="sector-status">100% OPERATIONAL</span>
+                    </div>
+                    <h3 class="sector-title">RUNTIME &amp; OPERATIONS</h3>
+                    <p class="sector-desc">Asynchronous pipelines, state orchestration &amp; APIs.</p>
+
+                    <div class="sector-chips-list">
+                        <div class="data-chip">
+                            <span class="chip-name">Node.js Engine</span>
+                            <span class="chip-metric">[PRO] 86%</span>
+                            <div class="chip-meter"><span style="width: 86%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Git &amp; GitHub Pipelines</span>
+                            <span class="chip-metric">[PRO] 88%</span>
+                            <div class="chip-meter"><span style="width: 88%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">RESTful APIs &amp; Endpoints</span>
+                            <span class="chip-metric">[PRO] 88%</span>
+                            <div class="chip-meter"><span style="width: 88%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Performance Profiling</span>
+                            <span class="chip-metric">[ADV] 90%</span>
+                            <div class="chip-meter"><span style="width: 90%;"></span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sector Gamma: AI & Spatial Design -->
+                <article class="sector-card bento-hud-card" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="sector-header">
+                        <span class="sector-badge uv-txt">[SECTOR_GAMMA]</span>
+                        <span class="sector-status">100% OPERATIONAL</span>
+                    </div>
+                    <h3 class="sector-title">AI &amp; SPATIAL DESIGN</h3>
+                    <p class="sector-desc">Prompt engineering, generative tokens &amp; 3D WebGL.</p>
+
+                    <div class="sector-chips-list">
+                        <div class="data-chip">
+                            <span class="chip-name">AI Prompt Engineering</span>
+                            <span class="chip-metric">[ADV] 94%</span>
+                            <div class="chip-meter"><span style="width: 94%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Generative UI Systems</span>
+                            <span class="chip-metric">[ADV] 92%</span>
+                            <div class="chip-meter"><span style="width: 92%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Figma Spatial Prototyping</span>
+                            <span class="chip-metric">[PRO] 90%</span>
+                            <div class="chip-meter"><span style="width: 90%;"></span></div>
+                        </div>
+                        <div class="data-chip">
+                            <span class="chip-name">Three.js / WebGL Spatial</span>
+                            <span class="chip-metric">[ADV] 88%</span>
+                            <div class="chip-meter"><span style="width: 88%;"></span></div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ===================================
+             3. PROJECT HOLOGRAM SHOWCASE (THE 6 FEATURED MODULES)
+             =================================== -->
+        <section class="hud-section projects-showcase-section" id="projects-showcase">
+            <div class="hud-section-header">
+                <div class="header-stamp">[TRANSMISSION_SYS: 03 // 6 ACTIVE MODULES]</div>
+                <h2 class="header-title">PROJECT HOLOGRAM <span class="cyan-neon">SHOWCASE</span></h2>
+                <div class="header-laser-line"></div>
+            </div>
+
+            <!-- Category Switcher -->
+            <div class="transmission-filters">
+                <button class="holo-filter-btn active" data-filter="all">[ALL_TRANSMISSIONS (6)]</button>
+                <button class="holo-filter-btn" data-filter="fintech">[FINTECH_PLATFORMS]</button>
+                <button class="holo-filter-btn" data-filter="security">[SECURITY_&amp;_ENTERPRISE]</button>
+                <button class="holo-filter-btn" data-filter="utility">[UTILITY_ENGINES]</button>
+            </div>
+
+            <!-- 6 Transmission Modules Grid -->
+            <div class="transmission-modules-grid">
+
+                <!-- TRANSMISSION 01: Smart Cashback POS -->
+                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 01</span>
+                        <span class="trans-status teal-txt">[ACTIVE // ONLINE]</span>
+                    </div>
+
+                    <!-- Holographic Wireframe Preview -->
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics pos-preview">
+                            <div class="cashback-laser-gauge">
+                                <div class="gauge-dial"><span>+18.4%</span></div>
+                                <span class="gauge-sub">INSTANT REWARDS</span>
+                            </div>
+                            <div class="pos-laser-columns">
+                                <i></i><i></i><i></i><i></i>
+                            </div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="1">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">Smart Cashback POS</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> Intelligent POS &amp; automated billing platform with cashback incentives. Executes real-time bill calculations and merchant settlement reconciliation.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">FinTech</span>
+                            <span class="trans-tag">Billing Engine</span>
+                            <span class="trans-tag">Dashboard</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/smart-cashback" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="1">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TRANSMISSION 02: UPI Fraud Detection -->
+                <article class="transmission-card bento-hud-card" data-category="security" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 02</span>
+                        <span class="trans-status amber-txt">[SENTINEL // ACTIVE]</span>
+                    </div>
+
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics radar-preview">
+                            <div class="radar-hud-reticle">
+                                <div class="radar-scan-sweep"></div>
+                                <div class="radar-blip b1"></div>
+                                <div class="radar-blip b2"></div>
+                            </div>
+                            <div class="radar-hud-readout">RISK SCORE: 0.02% [CLEARED]</div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="2">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">UPI Fraud Detection</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> Real-time transactional fraud detection and automated security risk analysis engine for high-velocity payments and spoofed VPA addresses.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">AI/ML</span>
+                            <span class="trans-tag">FinTech Security</span>
+                            <span class="trans-tag">Fraud Detection</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/UPI-Fraud-Detection" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="2">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TRANSMISSION 03: Integrated Disconnection Portal -->
+                <article class="transmission-card bento-hud-card" data-category="security" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 03</span>
+                        <span class="trans-status teal-txt">[WORKFLOW // DEPLOYED]</span>
+                    </div>
+
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics workflow-preview">
+                            <div class="wf-track-line">
+                                <div class="wf-circle active"><i class="fas fa-check"></i></div>
+                                <div class="wf-segment done"></div>
+                                <div class="wf-circle active"><i class="fas fa-arrows-rotate fa-spin"></i></div>
+                                <div class="wf-segment"></div>
+                                <div class="wf-circle"><i class="fas fa-shield"></i></div>
+                            </div>
+                            <div class="wf-hud-readout">SLA COMPLIANCE // 99.98%</div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="3">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">Integrated Disconnection Portal</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> Automated service disconnection and enterprise workflow management portal coordinating multi-department approval gates and equipment reclamation.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">Enterprise Portal</span>
+                            <span class="trans-tag">Workflow Automation</span>
+                            <span class="trans-tag">Service Management</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/Integrated-Disconnection-Portal" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="3">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TRANSMISSION 04: Ledger Account Book -->
+                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 04</span>
+                        <span class="trans-status teal-txt">[LEDGER // BALANCED]</span>
+                    </div>
+
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics ledger-preview">
+                            <svg viewBox="0 0 160 50" class="ledger-laser-svg">
+                                <path d="M0,45 Q40,15 80,30 T160,8" fill="none" stroke="#00E5FF" stroke-width="2.5" />
+                                <path d="M0,45 Q40,15 80,30 T160,8 L160,50 L0,50 Z" fill="rgba(0, 229, 255, 0.15)" />
+                            </svg>
+                            <div class="ledger-hud-readout">BALANCE: ₹842,500.00 [ZERO_DRIFT]</div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="4">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">Ledger Account Book</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> Real-time digital ledger, personal/business expense tracker, and financial audit system with double-entry balancing and procedural charts.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">Finance</span>
+                            <span class="trans-tag">Accounting</span>
+                            <span class="trans-tag">Data Visualizations</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/Ledger-account-book" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="4">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TRANSMISSION 05: PDF Converter -->
+                <article class="transmission-card bento-hud-card" data-category="utility" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 05</span>
+                        <span class="trans-status teal-txt">[WASM // SANDBOXED]</span>
+                    </div>
+
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics pdf-preview">
+                            <div class="pdf-laser-exchange">
+                                <div class="file-box red"><i class="fas fa-file-pdf"></i></div>
+                                <div class="laser-arrow"><i class="fas fa-angles-right"></i></div>
+                                <div class="file-box cyan"><i class="fas fa-file-code"></i></div>
+                            </div>
+                            <div class="pdf-hud-readout">CLIENT WASM // ZERO DATA LEAK</div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="5">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">PDF Converter</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> High-speed browser document processing, file conversion, and transformation utility with client-side WebAssembly execution for total privacy.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">Web App</span>
+                            <span class="trans-tag">Document Processing</span>
+                            <span class="trans-tag">Utility</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/pdf-converter" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="5">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- TRANSMISSION 06: Bank Account Closure Portal -->
+                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
+                    <div class="hud-corner-bracket tl">[ + ]</div>
+                    <div class="hud-corner-bracket tr">[ - ]</div>
+                    <div class="hud-corner-bracket bl">[ - ]</div>
+                    <div class="hud-corner-bracket br">[ + ]</div>
+                    <div class="card-scanline-laser"></div>
+
+                    <div class="trans-header">
+                        <span class="trans-id cyan-txt">TRANSMISSION 06</span>
+                        <span class="trans-status uv-txt">[ENCRYPTED // SECURE]</span>
+                    </div>
+
+                    <div class="trans-wireframe-box">
+                        <div class="wireframe-grid-canvas"></div>
+                        <div class="wireframe-graphics bank-preview">
+                            <div class="bank-vault-laser">
+                                <i class="fas fa-shield-halved"></i>
+                                <span>256-BIT AUDIT</span>
+                            </div>
+                            <div class="bank-hud-readout">COMPLIANCE // CLEARANCE READY</div>
+                        </div>
+                        <div class="trans-hover-overlay">
+                            <button class="btn-inspect-packet" data-transmission="6">
+                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trans-body">
+                        <h3 class="trans-title">Bank Account Closure Portal</h3>
+                        <p class="trans-classification">
+                            <strong>Classification:</strong> High-security banking portal streamlining customer account liquidation, digital affidavit signatures, and regulatory compliance workflows.
+                        </p>
+
+                        <div class="trans-tags-row">
+                            <span class="trans-tag">FinTech</span>
+                            <span class="trans-tag">Security</span>
+                            <span class="trans-tag">Portal</span>
+                        </div>
+
+                        <div class="trans-actions-row">
+                            <a href="https://github.com/sivasan18/Bank-Account-Closure-Portal" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
+                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
+                            </a>
+                            <button class="btn-trans-inspect" data-transmission="6">
+                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ===================================
+             4. ENCRYPTED SIGNAL / TRANSMISSION DECK (CONTACT)
+             =================================== -->
+        <section class="hud-section signal-deck-section" id="transmission-deck">
+            <div class="hud-section-header">
+                <div class="header-stamp">[SIGNAL_SYS: 04 // DIRECT ENCRYPTED FREQUENCY]</div>
+                <h2 class="header-title">ENCRYPTED <span class="cyan-neon">SIGNAL DECK</span></h2>
+                <div class="header-laser-line"></div>
+            </div>
+
+            <!-- Terminal Deck Base Card -->
+            <div class="signal-deck-card bento-hud-card">
+                <div class="hud-corner-bracket tl">[ + ]</div>
+                <div class="hud-corner-bracket tr">[ - ]</div>
+                <div class="hud-corner-bracket bl">[ - ]</div>
+                <div class="hud-corner-bracket br">[ + ]</div>
+
+                <div class="deck-split-grid">
+                    <!-- Left: Terminal Input Console -->
+                    <div class="deck-console-col">
+                        <div class="console-status-strip">
+                            <span class="beacon-dot"></span>
+                            <span class="console-title">[TERMINAL_DIRECTIVE: AES-256 ENCRYPTED CONSOLE]</span>
+                        </div>
+
+                        <form class="hud-signal-form" id="signalConsoleForm" autocomplete="off">
+                            <div class="form-dual-inputs">
+                                <div class="signal-field">
+                                    <label for="opName" class="signal-label">[PARAM: OPERATOR_NAME]</label>
+                                    <input type="text" id="opName" name="name" class="signal-input" placeholder="Maya Lin // Engineering Lead" required>
+                                </div>
+                                <div class="signal-field">
+                                    <label for="opEmail" class="signal-label">[PARAM: EMAIL_FREQUENCY]</label>
+                                    <input type="email" id="opEmail" name="email" class="signal-input" placeholder="operator@enterprise.io" required>
+                                </div>
+                            </div>
+
+                            <div class="signal-field">
+                                <label for="opDirective" class="signal-label">[PARAM: DIRECTIVE (SUBJECT)]</label>
+                                <select id="opDirective" name="directive" class="signal-input signal-select">
+                                    <option value="Frontend Architecture">Frontend Architecture (React / Modern JS)</option>
+                                    <option value="Generative AI Protocol">Generative AI Protocol &amp; Spatial UI</option>
+                                    <option value="Senior Engineering Role">Senior Engineering Role // Staff IC</option>
+                                    <option value="Spatial 3D / WebGL">Spatial 3D / WebGL Engineering</option>
+                                    <option value="Technical Consultation">Technical Consultation &amp; Collaboration</option>
+                                </select>
+                            </div>
+
+                            <div class="signal-field">
+                                <label for="opPayload" class="signal-label">[PARAM: SIGNAL_PAYLOAD (MESSAGE)]</label>
+                                <textarea id="opPayload" name="message" rows="4" class="signal-input signal-textarea" placeholder="Input transmission payload, scope specifications, or timeline requirements..." required></textarea>
+                            </div>
+
+                            <!-- Live Feedback Console -->
+                            <div class="signal-telemetry-log" id="signalConsoleLog">
+                                <span class="log-prompt">&gt;</span> Signal console online. Awaiting payload dispatch...
+                            </div>
+
+                            <button type="submit" class="cyber-btn cyber-btn-primary btn-dispatch-signal" id="btnDispatchSignal">
+                                <span class="btn-laser-glow"></span>
+                                <i class="fas fa-satellite-dish"></i>
+                                <span>TRANSMIT SIGNAL PAYLOAD</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Frequency Readouts & Social Transmitters -->
+                    <div class="deck-telemetry-col">
+                        <div class="frequency-readouts-box">
+                            <span class="box-tag">[FREQUENCY_READOUTS]</span>
+
+                            <div class="freq-item">
+                                <div class="freq-icon"><i class="fas fa-envelope-open-text"></i></div>
+                                <div class="freq-data">
+                                    <span class="freq-lbl">FREQUENCY (EMAIL):</span>
+                                    <a href="mailto:sivar75@gmail.com" class="freq-val" id="emailVal">sivar75@gmail.com</a>
+                                </div>
+                                <button class="btn-copy-freq" id="btnCopyEmail" title="Copy channel frequency" aria-label="Copy Email">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+
+                            <div class="freq-item">
+                                <div class="freq-icon"><i class="fas fa-tower-broadcast"></i></div>
+                                <div class="freq-data">
+                                    <span class="freq-lbl">FREQUENCY (TEL):</span>
+                                    <a href="tel:+919876543210" class="freq-val">+91 9876543210</a>
+                                </div>
+                                <span class="freq-code amber-txt">IST // GMT+5:30</span>
+                            </div>
+
+                            <div class="freq-item">
+                                <div class="freq-icon"><i class="fas fa-location-crosshairs"></i></div>
+                                <div class="freq-data">
+                                    <span class="freq-lbl">SECTOR:</span>
+                                    <span class="freq-val">India // Global Deployment</span>
+                                </div>
+                                <span class="freq-code teal-txt">WORLDWIDE</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Transmitters -->
+                        <div class="social-transmitters-box">
+                            <span class="box-tag">[SOCIAL_TRANSMITTERS]</span>
+                            <div class="transmitters-row">
+                                <a href="https://github.com/sivasan18" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                    <span class="hud-btn-tip">GITHUB</span>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="LinkedIn Neural ID">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span class="hud-btn-tip">LINKEDIN</span>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="Twitter / X Feed">
+                                    <i class="fab fa-x-twitter"></i>
+                                    <span class="hud-btn-tip">TWITTER</span>
+                                </a>
+                                <a href="mailto:sivar75@gmail.com" class="hud-square-btn" aria-label="Direct Signal">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span class="hud-btn-tip">SIGNAL</span>
+                                </a>
+                                <a href="./assets/resume.pdf" download="Sivaramakrishnan_CV.pdf" class="hud-square-btn" aria-label="Download CV Dossier">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span class="hud-btn-tip">CV</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3 class="skill-name">HTML5</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                    <p class="skill-level">Advanced</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3 class="skill-name">CSS3</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                    <p class="skill-level">Advanced</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <h3 class="skill-name">JavaScript</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <p class="skill-level">Proficient</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-node-js"></i>
-                    </div>
-                    <h3 class="skill-name">Node.js</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
-                    </div>
-                    <p class="skill-level">Proficient</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3 class="skill-name">Git & GitHub</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <p class="skill-level">Proficient</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3 class="skill-name">Responsive Design</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
-                    </div>
-                    <p class="skill-level">Advanced</p>
-                </div>
+    <!-- ===================================
+         HOLOGRAPHIC FOOTER
+         =================================== -->
+    <footer class="hud-footer">
+        <div class="footer-frame-container">
+            <div class="footer-left">
+                <span class="footer-system-tag">[HOLO.SYS 2026]</span>
+                <span class="footer-copy">All rights reserved. Encrypted by Sivaramakrishnan.</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">A selection of my recent work</p>
-            <div class="projects-grid">
-                <!-- Project 1: jafar-fastfood-billing -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project1.jpg" alt="Jafar Fastfood Billing">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/jafar-fastfood-billing" target="_blank"
-                                class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Jafar Fastfood Billing</h3>
-                        <p class="project-description">
-                            A comprehensive billing system designed for fast food restaurants to manage orders and
-                            invoices efficiently.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Billing System</span>
-                            <span class="tag">Management</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: AMS-Motors -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project2.jpg" alt="AMS Motors">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/AMS-Motors" target="_blank" class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">AMS Motors</h3>
-                        <p class="project-description">
-                            A management solution for AMS Motors, streamlining operations and inventory tracking.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Automotive</span>
-                            <span class="tag">Management</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Integrated-Disconnection-Portal -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project3.jpg" alt="Integrated Disconnection Portal">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/Integrated-Disconnection-Portal" target="_blank"
-                                class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Integrated Disconnection Portal</h3>
-                        <p class="project-description">
-                            A specialized portal for managing and processing service disconnections effectively.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Portal</span>
-                            <span class="tag">Service Management</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Ledger-account-book -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project4.jpg" alt="Ledger Account Book">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/Ledger-account-book" target="_blank"
-                                class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Ledger Account Book</h3>
-                        <p class="project-description">
-                            A digital ledger application for tracking personal or business accounts and expenses.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Finance</span>
-                            <span class="tag">Accounting</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Anumanthai -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project5.jpg" alt="Anumanthai Website">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/anumanthai" target="_blank" class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Anumanthai Website</h3>
-                        <p class="project-description">
-                            A dedicated website for Anumanthai village, showcasing local information and resources.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Community</span>
-                            <span class="tag">Information</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Bank Account Closure Portal -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/projects/project6.jpg" alt="Bank Account Closure Portal">
-                        <div class="project-overlay">
-                            <a href="https://github.com/sivasan18/Bank-Account-Closure-Portal" target="_blank"
-                                class="btn-view-details">
-                                <i class="fab fa-github"></i> View Project
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Bank Account Closure Portal</h3>
-                        <p class="project-description">
-                            A secure portal designed to streamline the process of closing bank accounts for customers.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">FinTech</span>
-                            <span class="tag">Portal</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's discuss your next project or opportunity</p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <a href="mailto:sivar75@gmail.com">sivar75@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone</h3>
-                            <a href="tel:+919876543210">+91 9876543210</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Location</h3>
-                            <p>India</p>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sivaramakrishnan</h3>
-                    <p>Front End Developer passionate about creating beautiful web experiences</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/sivasan18" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="mailto:sivar75@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Sivaramakrishnan. All rights reserved.</p>
+            <div class="footer-right">
+                <span class="status-lamp"></span>
+                <span>VOLUMETRIC PROJECTION TERMINAL // STABLE</span>
+                <a href="#hero" class="btn-top-laser" aria-label="Return to Hero">[ROOT_TOP]</a>
             </div>
         </div>
     </footer>
 
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-body" id="modalBody">
-                <!-- Dynamic content will be inserted here -->
+    <!-- ===================================
+         HOLOGRAPHIC DATA PACKET DOSSIER MODAL
+         =================================== -->
+    <dialog class="hud-modal" id="packetDossierModal" aria-labelledby="packetModalTitle">
+        <div class="hud-modal-container">
+            <div class="hud-corner-bracket tl">[ + ]</div>
+            <div class="hud-corner-bracket tr">[ - ]</div>
+            <div class="hud-corner-bracket bl">[ - ]</div>
+            <div class="hud-corner-bracket br">[ + ]</div>
+
+            <div class="hud-modal-topbar">
+                <span class="modal-badge">[TRANSMISSION_DATA_PACKET // DECRYPTED]</span>
+                <button class="hud-modal-close" id="modalCloseBtn" aria-label="Close Dossier">
+                    <i class="fas fa-xmark"></i> [ESC]
+                </button>
+            </div>
+
+            <div class="hud-modal-body" id="packetModalBody">
+                <!-- Dynamically populated via script.js -->
             </div>
         </div>
-    </div>
+    </dialog>
 
+    <!-- Three.js (for 3D Volumetric Wireframe Emitter) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 
