@@ -169,9 +169,23 @@
 
     function initVolumetricEmitter(targetCanvas) {
         if (typeof THREE === 'undefined') {
-            run2DCanvasFallback(targetCanvas);
+            let attempts = 0;
+            const checkTimer = setInterval(() => {
+                attempts++;
+                if (typeof THREE !== 'undefined') {
+                    clearInterval(checkTimer);
+                    startThreeEmitter(targetCanvas);
+                } else if (attempts > 30) {
+                    clearInterval(checkTimer);
+                    run2DCanvasFallback(targetCanvas);
+                }
+            }, 50);
             return;
         }
+        startThreeEmitter(targetCanvas);
+    }
+
+    function startThreeEmitter(targetCanvas) {
 
         try {
             const container = targetCanvas.parentElement;
