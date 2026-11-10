@@ -1,2787 +1,1672 @@
 <!DOCTYPE html>
-<html lang="en" class="cyber-theme">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Sivaramakrishnan // Cybernetic Hologram Portfolio — Frontend Developer & AI Designer. Volumetric Holographic HUD Terminal.">
-    <meta name="keywords"
-        content="Sivaramakrishnan, Cybernetic Frontend Architect, Generative AI Designer, Three.js, WebGL Hologram, Spatial UI, Cyberpunk Portfolio, React, Node.js">
-    <meta name="author" content="Sivaramakrishnan">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FAF9F6">
+  <title>SIVARAMAKRISHNAN — 3D Editorial Portfolio // Frontend Developer & AI Designer</title>
+  <meta name="description" content="Sivaramakrishnan — Frontend Developer, Generative AI Designer, and Creative Developer. Minimalist 3D fashion-editorial portfolio and technical archive.">
+  <meta name="keywords" content="Sivaramakrishnan, Frontend Developer, Generative AI Designer, Creative Developer, Three.js, WebGL, React, UI/UX Design Systems">
+  <meta name="author" content="Sivaramakrishnan">
 
-    <!-- Open Graph / Social Meta -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL">
-    <meta property="og:description"
-        content="CYBERNETIC FRONTEND ARCHITECT × GENERATIVE AI DESIGNER. High-performance web interfaces & volumetric spatial engineering.">
-    <meta property="og:image" content="./assets/profile.jpg">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SIVARAMAKRISHNAN — 3D Fashion-Editorial Portfolio">
+  <meta property="og:description" content="Frontend Developer & Generative AI Designer. Bridging high-performance engineering with luxury editorial aesthetics.">
+  <meta property="og:url" content="https://sivasan18.github.io/About-me/">
 
-    <!-- Security Headers & Directives -->
-<meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22 fill=%22%23E5232E%22>S</text></svg>">
 
-    <title>SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL [HOLO.EMITTER: ONLINE]</title>
-
-    <!-- Google Fonts: Orbitron (Headings), JetBrains Mono (Telemetry/Data), Inter (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome 6 Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Cybernetic Hologram Stylesheet -->
-        <!-- Cybernetic Hologram Stylesheet -->
-    <link rel="stylesheet" href="./styles.css">
-    <style>
+  <!-- External Stylesheet & Embedded Styles (Zero-FOUC Guarantee) -->
+  <link rel="stylesheet" href="./styles.css">
+  <style>
 /* ==========================================================================
-   SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL
-   Aesthetic: Sci-Fi Cybernetic Hologram, Volumetric HUD, Planar Glass
-   Colors: Deep Dark Void (#03060C, #060B16), Laser Cyan (#00E5FF),
-           Electric Teal (#00FFC2), Holographic Ultraviolet (#8A2BE2),
-           Amber Alerts (#FFB800)
+   SIVARAMAKRISHNAN — IMMERSIVE 3D FASHION-EDITORIAL PORTFOLIO
+   Design Language: Minimalist Luxury Editorial / Warm Ivory & Bold Red
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   01. DESIGN TOKENS & VOLUMETRIC GRADIENTS
-   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap');
+
 :root {
-    /* Deep Dark Void Backgrounds */
-    --void-black: #03060C;
-    --void-deep: #060B16;
-    --void-surface: #09101F;
-    --void-card-bg: rgba(6, 11, 22, 0.84);
+  --bg-primary: #FAF9F6;
+  --bg-secondary: #F3EFE8;
+  --bg-surface: #FFFFFF;
+  --accent-red: #E5232E;
+  --accent-red-hover: #C51722;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --text-light: #999999;
+  --border-light: #E8E4DC;
+  --border-dark: #111111;
+  
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
-    /* Laser Hologram Spectrum */
-    --laser-cyan: #00E5FF;
-    --laser-cyan-glow: rgba(0, 229, 255, 0.45);
-    --laser-cyan-subtle: rgba(0, 229, 255, 0.12);
-
-    --electric-teal: #00FFC2;
-    --electric-teal-glow: rgba(0, 255, 194, 0.45);
-    --electric-teal-subtle: rgba(0, 255, 194, 0.12);
-
-    --holo-ultraviolet: #8A2BE2;
-    --holo-uv-glow: rgba(138, 43, 226, 0.45);
-    --holo-uv-subtle: rgba(138, 43, 226, 0.15);
-
-    --amber-alert: #FFB800;
-    --amber-glow: rgba(255, 184, 0, 0.35);
-
-    /* Typography Tiers */
-    --text-white: #FFFFFF;
-    --text-data: #E2E8F0;
-    --text-muted: #7E8D9F;
-    --text-ghost: #3E4B5B;
-
-    /* Circuit Borders & Volumetric Cones */
-    --circuit-border: rgba(0, 229, 255, 0.18);
-    --circuit-border-hover: rgba(0, 229, 255, 0.65);
-    --circuit-border-teal: rgba(0, 255, 194, 0.65);
-
-    /* Typography */
-    --font-heading: 'Orbitron', -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --font-body: 'Inter', -apple-system, sans-serif;
-
-    /* Max Widths */
-    --hud-max-width: 1260px;
-    --hud-nav-height: 72px;
-
-    /* Fast, Snappy Cybernetic Physics (No Sluggish Bouncing) */
-    --snap-fast: 0.15s cubic-bezier(0.1, 0.9, 0.2, 1);
-    --snap-med: 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* --------------------------------------------------------------------------
-   02. RESET & BASE VOID STYLES
-   -------------------------------------------------------------------------- */
+/* Base Reset & Typography */
 *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-    background-color: var(--void-black);
-    color: var(--text-data);
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body.cyber-void {
-    font-family: var(--font-body);
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
-    background: var(--void-black);
-    color: var(--text-data);
-    min-height: 100vh;
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
 ::selection {
-    background: var(--laser-cyan);
-    color: var(--void-black);
-    text-shadow: none;
+  background: var(--accent-red);
+  color: #FFFFFF;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s var(--ease-editorial);
 }
 
 button {
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 img {
-    max-width: 100%;
-    display: block;
-}
-
-/* --------------------------------------------------------------------------
-   03. HOLOGRAPHIC SCANLINES & PARTICULATE GRID
-   -------------------------------------------------------------------------- */
-.hologram-scanlines {
-    position: fixed;
-    inset: 0;
-    z-index: 9990;
-    pointer-events: none;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 0, 0.35) 50%,
-        rgba(0, 0, 0, 0.35)
-    );
-    background-size: 100% 4px;
-    opacity: 0.75;
-}
-
-.laser-vignette {
-    position: fixed;
-    inset: 0;
-    z-index: 9989;
-    pointer-events: none;
-    background: 
-        radial-gradient(circle at center, transparent 40%, rgba(3, 6, 12, 0.9) 100%),
-        linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
-    background-size: 100% 100%, 32px 32px, 32px 32px;
-}
-
-/* Laser-Thin Glowing Progress Coordinate Line */
-.cyber-laser-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 2px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--laser-cyan), var(--electric-teal));
-    box-shadow: 0 0 10px var(--laser-cyan), 0 0 20px var(--laser-cyan);
-    z-index: 10001;
-    transition: width 0.05s linear;
-}
-
-/* Viewport HUD Technical Corner Brackets */
-.viewport-hud-frame {
-    position: fixed;
-    inset: 12px;
-    pointer-events: none;
-    z-index: 9995;
-    border: 1px solid rgba(0, 229, 255, 0.05);
-}
-
-.hud-corner {
-    position: absolute;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    color: var(--laser-cyan);
-    letter-spacing: 0.1em;
-    padding: 2px 6px;
-    opacity: 0.8;
-}
-
-.hud-corner.top-left { top: 0; left: 0; border-top: 2px solid var(--laser-cyan); border-left: 2px solid var(--laser-cyan); }
-.hud-corner.top-right { top: 0; right: 0; border-top: 2px solid var(--laser-cyan); border-right: 2px solid var(--laser-cyan); }
-.hud-corner.bottom-left { bottom: 0; left: 0; border-bottom: 2px solid var(--laser-cyan); border-left: 2px solid var(--laser-cyan); }
-.hud-corner.bottom-right { bottom: 0; right: 0; border-bottom: 2px solid var(--laser-cyan); border-right: 2px solid var(--laser-cyan); }
-
-/* Laser Cursor Reticle */
-.hud-cursor-reticle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    margin-left: -16px;
-    margin-top: -16px;
-    pointer-events: none;
-    z-index: 10002;
-    transition: transform 0.02s linear;
-    mix-blend-mode: screen;
-}
-
-.reticle-ring {
-    position: absolute;
-    inset: 0;
-    border: 1px dashed var(--laser-cyan);
-    border-radius: 50%;
-    animation: rotateReticle 16s linear infinite;
-}
-
-.reticle-crosshair {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    margin-left: -3px;
-    margin-top: -3px;
-    background: var(--laser-cyan);
-    box-shadow: 0 0 8px var(--laser-cyan);
-}
-
-.reticle-coords {
-    position: absolute;
-    top: 36px;
-    left: 12px;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    color: var(--electric-teal);
-    background: rgba(3, 6, 12, 0.9);
-    padding: 1px 6px;
-    border: 1px solid rgba(0, 255, 194, 0.4);
-    white-space: nowrap;
-}
-
-@keyframes rotateReticle {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* --------------------------------------------------------------------------
-   04. HUD VOLUMETRIC NAVIGATION DOCK
-   -------------------------------------------------------------------------- */
-.hud-header {
-    position: fixed;
-    top: 18px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    padding: 0 24px;
-    pointer-events: none;
-}
-
-.hud-nav-bar {
-    pointer-events: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    background: rgba(6, 11, 22, 0.92);
-    border: 1px solid var(--circuit-border);
-    box-shadow: 0 0 24px rgba(0, 229, 255, 0.12), inset 0 0 12px rgba(0, 229, 255, 0.05);
-    padding: 10px 22px;
-    max-width: 1180px;
-    width: 100%;
-    position: relative;
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-}
-
-.hud-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.brand-hex {
-    position: relative;
-    width: 38px;
-    height: 38px;
-    background: rgba(0, 229, 255, 0.1);
-    border: 1px solid var(--laser-cyan);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 12px var(--laser-cyan-glow);
-}
-
-.hex-core {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 0.95rem;
-    color: var(--laser-cyan);
-}
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.brand-id {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: #ffffff;
-    letter-spacing: 0.05em;
-}
-
-.brand-meta {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.neon-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--electric-teal);
-    border-radius: 50%;
-    box-shadow: 0 0 6px var(--electric-teal);
-}
-
-.hud-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.hud-link {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    padding: 6px 12px;
-    border: 1px solid transparent;
-    transition: all var(--snap-fast);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    letter-spacing: 0.04em;
-}
-
-.hud-bracket {
-    color: var(--laser-cyan);
-    opacity: 0.6;
-}
-
-.hud-link:hover {
-    color: #ffffff;
-    background: rgba(0, 229, 255, 0.08);
-    border-color: rgba(0, 229, 255, 0.35);
-    text-shadow: 0 0 8px var(--laser-cyan);
-}
-
-.hud-link.active {
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.12);
-    border-color: var(--laser-cyan);
-    box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.2);
-}
-
-.hud-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.hud-btn-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(0, 229, 255, 0.06);
-    border: 1px solid var(--circuit-border);
-    color: var(--laser-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    transition: all var(--snap-fast);
-}
-
-.hud-btn-icon:hover {
-    border-color: var(--laser-cyan);
-    box-shadow: 0 0 12px var(--laser-cyan-glow);
-}
-
-.hud-btn-cta {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--electric-teal);
-    background: rgba(0, 255, 194, 0.08);
-    border: 1px solid var(--electric-teal);
-    padding: 7px 16px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    letter-spacing: 0.06em;
-    transition: all var(--snap-fast);
-    box-shadow: 0 0 12px rgba(0, 255, 194, 0.2);
-}
-
-.hud-btn-cta:hover {
-    background: var(--electric-teal);
-    color: var(--void-black);
-    box-shadow: 0 0 24px var(--electric-teal-glow);
-}
-
-.hud-mobile-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 16px;
-    background: transparent;
-}
-
-.hud-mobile-toggle .hud-bar {
-    height: 2px;
-    width: 100%;
-    background: var(--laser-cyan);
-}
-
-/* --------------------------------------------------------------------------
-   05. 3D HOLOGRAPHIC HERO EXPERIENCE
-   -------------------------------------------------------------------------- */
-.hero-projector-section {
-    position: relative;
-    min-height: 100vh;
-    padding-top: calc(var(--hud-nav-height) + 40px);
-    padding-bottom: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-/* Volumetric Holographic Light Projection Cone */
-.hologram-projector-stage {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: auto;
-}
-
-.volumetric-light-cone {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 700px;
-    pointer-events: none;
-    clip-path: polygon(30% 100%, 70% 100%, 98% 0%, 2% 0%);
-    opacity: 0.45;
-    z-index: 1;
-}
-
-.cone-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 229, 255, 0.4) 0%,
-        rgba(0, 255, 194, 0.2) 40%,
-        rgba(138, 43, 226, 0.1) 80%,
-        transparent 100%
-    );
-    filter: blur(12px);
-    animation: conePulse 4s ease-in-out infinite alternate;
-}
-
-.cone-laser-lines {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(0, 229, 255, 0.08) 0px,
-        rgba(0, 229, 255, 0.08) 2px,
-        transparent 2px,
-        transparent 30px
-    );
-}
-
-@keyframes conePulse {
-    0% { opacity: 0.35; transform: scaleX(0.96); }
-    100% { opacity: 0.6; transform: scaleX(1.04); }
-}
-
-.hologram-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: relative;
-    z-index: 2;
-}
-
-/* Circular Metallic Emitter Base */
-.projector-emitter-base {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 360px;
-    height: 48px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.6) 0%, #060B16 70%);
-    border: 2px solid var(--laser-cyan);
-    box-shadow: 0 0 35px var(--laser-cyan-glow), inset 0 0 25px rgba(0, 229, 255, 0.4);
-    pointer-events: none;
-    z-index: 3;
-}
-
-.emitter-metallic-rim {
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    border: 1px dashed var(--electric-teal);
-    animation: rotateReticle 24s linear infinite;
-}
-
-.emitter-laser-ticks {
-    position: absolute;
-    inset: -14px;
-    border-radius: 50%;
-    border: 1px dotted rgba(0, 229, 255, 0.4);
-    animation: rotateReticle 40s linear infinite reverse;
-}
-
-/* Projector Telemetry Overlay */
-.projector-telemetry-overlay {
-    position: absolute;
-    bottom: 24px;
-    right: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background: rgba(6, 11, 22, 0.9);
-    border: 1px solid var(--circuit-border);
-    padding: 8px 14px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    pointer-events: none;
-    z-index: 5;
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-}
-
-.telemetry-box {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.t-tag { color: var(--text-muted); }
-.t-val { font-weight: 700; color: #ffffff; }
-.t-val.cyan { color: var(--laser-cyan); }
-.t-val.teal { color: var(--electric-teal); }
-
-/* Hero Telemetry Overlay Content */
-.hero-telemetry-content {
-    position: relative;
-    z-index: 10;
-    max-width: 960px;
-    padding: 0 24px;
-    margin: 0 auto;
-    pointer-events: none;
-}
-
-.hero-telemetry-content > * {
-    pointer-events: auto;
-}
-
-.holo-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0, 229, 255, 0.08);
-    border: 1px solid var(--laser-cyan);
-    padding: 4px 16px;
-    margin-bottom: 20px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--laser-cyan);
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
-    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
-}
-
-.status-pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--electric-teal);
-    box-shadow: 0 0 10px var(--electric-teal);
-    animation: pulseBeacon 1.2s infinite;
-}
-
-.status-divider { color: var(--text-ghost); }
-.amber-txt { color: var(--amber-alert); }
-.cyan-txt { color: var(--laser-cyan); }
-.teal-txt { color: var(--electric-teal); }
-.uv-txt { color: #C084FC; }
-
-.hero-identity-headline {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(2.4rem, 6vw, 4.6rem);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    color: #ffffff;
-    margin-bottom: 16px;
-    text-shadow: 0 0 30px rgba(0, 229, 255, 0.35);
-}
-
-.hero-specialization-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-heading);
-    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
-    font-weight: 700;
-    color: var(--electric-teal);
-    letter-spacing: 0.04em;
-    margin-bottom: 24px;
-    text-shadow: 0 0 15px var(--electric-teal-glow);
-}
-
-.spec-bracket {
-    color: var(--laser-cyan);
-    font-family: var(--font-mono);
-}
-
-.hero-mission-lead {
-    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-    color: var(--text-data);
-    max-width: 760px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-}
-
-/* Hologram Projection Buttons */
-.hero-projection-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-}
-
-.cyber-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    padding: 14px 28px;
-    text-transform: uppercase;
-    transition: all var(--snap-fast);
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
-.cyber-btn-primary {
-    background: rgba(0, 229, 255, 0.12);
-    border: 1px solid var(--laser-cyan);
-    color: var(--laser-cyan);
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
-}
-
-.cyber-btn-primary:hover {
-    background: var(--laser-cyan);
-    color: var(--void-black);
-    box-shadow: 0 0 40px var(--laser-cyan-glow), 0 0 60px var(--laser-cyan);
-    transform: translateY(-2px);
-}
-
-.cyber-btn-secondary {
-    background: rgba(6, 11, 22, 0.85);
-    border: 1px solid var(--circuit-border);
-    color: var(--text-data);
-    font-family: var(--font-mono);
-}
-
-.cyber-btn-secondary:hover {
-    border-color: var(--electric-teal);
-    color: var(--electric-teal);
-    background: rgba(0, 255, 194, 0.08);
-    box-shadow: 0 0 20px rgba(0, 255, 194, 0.3);
-    transform: translateY(-2px);
-}
-
-.hero-telemetry-strip {
-    display: inline-flex;
-    align-items: center;
-    gap: 24px;
-    background: rgba(6, 11, 22, 0.9);
-    border: 1px solid var(--circuit-border);
-    padding: 10px 28px;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
-    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-}
-
-.strip-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.strip-lbl {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
-}
-
-.strip-val {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    color: #ffffff;
-}
-
-/* --------------------------------------------------------------------------
-   06. SECTION WRAPPERS & BENTO HUD CARDS
-   -------------------------------------------------------------------------- */
-.hud-section {
-    max-width: var(--hud-max-width);
-    margin: 0 auto;
-    padding: 80px 24px;
-    position: relative;
-    z-index: 5;
-}
-
-.hud-section-header {
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.header-stamp {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--laser-cyan);
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-}
-
-.header-title {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
-    letter-spacing: 0.02em;
-    color: #ffffff;
-    margin-bottom: 16px;
-}
-
-.cyan-neon {
-    color: var(--laser-cyan);
-    text-shadow: 0 0 20px var(--laser-cyan), 0 0 40px var(--laser-cyan-glow);
-}
-
-.header-laser-line {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, var(--laser-cyan), rgba(0, 229, 255, 0.1) 60%, transparent);
-    box-shadow: 0 0 10px var(--laser-cyan-glow);
-}
-
-/* Bento HUD Cards with Technical Corner Brackets */
-.bento-hud-card {
-    position: relative;
-    background: var(--void-card-bg);
-    border: 1px solid var(--circuit-border);
-    padding: 32px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-    transition: transform var(--snap-fast), border-color var(--snap-fast), box-shadow var(--snap-fast);
-    overflow: hidden;
-}
-
-.bento-hud-card:hover {
-    border-color: var(--circuit-border-hover);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.18), inset 0 0 20px rgba(0, 229, 255, 0.05);
-}
-
-.hud-corner-bracket {
-    position: absolute;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--laser-cyan);
-    pointer-events: none;
-    z-index: 4;
-}
-
-.hud-corner-bracket.tl { top: 6px; left: 8px; }
-.hud-corner-bracket.tr { top: 6px; right: 8px; }
-.hud-corner-bracket.bl { bottom: 6px; left: 8px; }
-.hud-corner-bracket.br { bottom: 6px; right: 8px; }
-
-.card-scanline-laser {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--laser-cyan);
-    box-shadow: 0 0 8px var(--laser-cyan);
-    opacity: 0;
-    transition: opacity var(--snap-fast);
-}
-
-.bento-hud-card:hover .card-scanline-laser {
-    opacity: 1;
-    animation: scanCardLaser 2.5s linear infinite;
-}
-
-@keyframes scanCardLaser {
-    0% { top: 0%; }
-    100% { top: 100%; }
-}
-
-/* --------------------------------------------------------------------------
-   07. 1. IDENTITY DOSSIER (ABOUT ME)
-   -------------------------------------------------------------------------- */
-.dossier-grid-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-/* Holographic ID Card with Targeting Reticle */
-.holo-id-badge-col {
-    display: flex;
-    justify-content: center;
-}
-
-.holo-id-frame {
-    position: relative;
-    width: 220px;
-    height: 220px;
-}
-
-.targeting-reticle {
-    position: absolute;
-    inset: -12px;
-    border: 1px dashed var(--laser-cyan);
-    border-radius: 50%;
-    animation: rotateReticle 18s linear infinite;
-}
-
-.reticle-laser-axis {
-    position: absolute;
-    background: rgba(0, 229, 255, 0.4);
-}
-
-.reticle-laser-axis.x-axis {
-    top: 50%;
-    left: -20px;
-    right: -20px;
-    height: 1px;
-}
-
-.reticle-laser-axis.y-axis {
-    left: 50%;
-    top: -20px;
-    bottom: -20px;
-    width: 1px;
-}
-
-.holo-photo-scanlines {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0, 229, 255, 0.25) 51%);
-    background-size: 100% 4px;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.holo-profile-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--laser-cyan);
-    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
-    filter: saturate(1.1) contrast(1.15) hue-rotate(5deg);
-    position: relative;
-    z-index: 2;
-}
-
-.holo-id-tag {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #03060C;
-    border: 1px solid var(--laser-cyan);
-    padding: 3px 10px;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--laser-cyan);
-    white-space: nowrap;
-    z-index: 5;
-    box-shadow: 0 0 10px var(--laser-cyan-glow);
-}
-
-/* Intel Dossier Specifications */
-.intel-header {
-    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
-    padding-bottom: 14px;
-    margin-bottom: 20px;
-}
-
-.intel-name {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 0.04em;
-    margin-bottom: 4px;
-}
-
-.intel-role {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--laser-cyan);
-}
-
-.intel-spec-blocks {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.spec-block {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: rgba(0, 229, 255, 0.03);
-    border-left: 2px solid var(--laser-cyan);
-    padding: 10px 16px;
-}
-
-.spec-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--laser-cyan);
-}
-
-.spec-heading {
-    font-size: 0.95rem;
-    color: #ffffff;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.spec-desc {
-    font-size: 0.86rem;
-    color: var(--text-data);
-    line-height: 1.6;
-}
-
-.parameters-pills-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 6px;
-}
-
-.param-pill {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--electric-teal);
-    background: rgba(0, 255, 194, 0.08);
-    border: 1px solid rgba(0, 255, 194, 0.3);
-    padding: 4px 10px;
-}
-
-/* --------------------------------------------------------------------------
-   08. 2. HOLOGRAPHIC TECH MATRIX (SKILLS)
-   -------------------------------------------------------------------------- */
-.sectors-matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.sector-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.sector-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
-    padding-bottom: 10px;
-    margin-bottom: 14px;
-}
-
-.sector-badge {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 700;
-}
-
-.sector-status {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--text-muted);
-}
-
-.sector-title {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 4px;
-}
-
-.sector-desc {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-}
-
-.sector-chips-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.data-chip {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.chip-name {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.chip-metric {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--laser-cyan);
-    align-self: flex-end;
-    margin-top: -18px;
-}
-
-.chip-meter {
-    width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    overflow: hidden;
-}
-
-.chip-meter span {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, var(--laser-cyan), var(--electric-teal));
-    box-shadow: 0 0 8px var(--laser-cyan);
-}
-
-/* --------------------------------------------------------------------------
-   09. 3. PROJECT HOLOGRAM SHOWCASE (THE 6 FEATURED MODULES)
-   -------------------------------------------------------------------------- */
-.transmission-filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-}
-
-.holo-filter-btn {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    background: rgba(6, 11, 22, 0.8);
-    border: 1px solid var(--circuit-border);
-    padding: 8px 18px;
-    transition: all var(--snap-fast);
-}
-
-.holo-filter-btn:hover {
-    color: #ffffff;
-    border-color: rgba(0, 229, 255, 0.4);
-}
-
-.holo-filter-btn.active {
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.12);
-    border-color: var(--laser-cyan);
-    box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
-}
-
-.transmission-modules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 28px;
-}
-
-.transmission-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.trans-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.12);
-    margin-bottom: 16px;
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-}
-
-.trans-id { font-weight: 700; }
-.trans-status { font-weight: 600; }
-
-/* Holographic Wireframe Box */
-.trans-wireframe-box {
-    position: relative;
-    height: 180px;
-    background: #03060C;
-    border: 1px solid rgba(0, 229, 255, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.wireframe-grid-canvas {
-    position: absolute;
-    inset: 0;
-    background-image: 
-        linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
-    background-size: 16px 16px;
-    pointer-events: none;
-}
-
-.wireframe-graphics {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* POS Preview */
-.cashback-laser-gauge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.gauge-dial {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 2px solid var(--laser-cyan);
-    box-shadow: 0 0 16px var(--laser-cyan-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 0.82rem;
-    color: #ffffff;
-    margin-bottom: 4px;
-}
-
-.gauge-sub {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-muted);
-}
-
-.pos-laser-columns {
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
-}
-
-.pos-laser-columns i {
-    width: 6px;
-    height: 20px;
-    background: var(--laser-cyan);
-    opacity: 0.6;
-}
-
-.pos-laser-columns i:nth-child(2) { height: 28px; opacity: 0.8; }
-.pos-laser-columns i:nth-child(3) { height: 36px; opacity: 1; }
-.pos-laser-columns i:nth-child(4) { height: 22px; opacity: 0.7; }
-
-/* Radar Preview */
-.radar-hud-reticle {
-    width: 74px;
-    height: 74px;
-    border-radius: 50%;
-    border: 1px solid var(--electric-teal);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 8px;
-    box-shadow: 0 0 14px rgba(0, 255, 194, 0.25);
-}
-
-.radar-scan-sweep {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, rgba(0, 255, 194, 0.45) 0deg, transparent 60deg, transparent 360deg);
-    animation: rotateReticle 3s linear infinite;
-}
-
-.radar-blip {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #FF0055;
-    box-shadow: 0 0 6px #FF0055;
-}
-
-.radar-blip.b1 { top: 30%; left: 35%; }
-.radar-blip.b2 { bottom: 25%; right: 38%; }
-
-.radar-hud-readout {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--electric-teal);
-}
-
-/* Workflow Preview */
-.wf-track-line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-}
-
-.wf-circle {
-    width: 26px;
-    height: 26px;
-    border: 1px solid var(--circuit-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-}
-
-.wf-circle.active { border-color: var(--laser-cyan); color: var(--laser-cyan); box-shadow: 0 0 8px var(--laser-cyan); }
-
-.wf-segment { width: 18px; height: 1px; background: rgba(0, 229, 255, 0.2); }
-.wf-segment.done { background: var(--electric-teal); box-shadow: 0 0 6px var(--electric-teal); }
-
-.wf-hud-readout { font-family: var(--font-mono); font-size: 0.68rem; color: var(--laser-cyan); }
-
-/* Ledger Preview */
-.ledger-laser-svg { width: 160px; height: 50px; margin-bottom: 6px; }
-.ledger-hud-readout { font-family: var(--font-mono); font-size: 0.68rem; color: var(--laser-cyan); }
-
-/* PDF Preview */
-.pdf-laser-exchange {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 6px;
-}
-
-.file-box {
-    width: 36px;
-    height: 44px;
-    border: 1px solid var(--laser-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.15rem;
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.08);
-}
-
-.file-box.red { border-color: #EF4444; color: #EF4444; background: rgba(239, 68, 68, 0.08); }
-.laser-arrow { color: var(--laser-cyan); animation: pulseBeacon 1s infinite; }
-.pdf-hud-readout { font-family: var(--font-mono); font-size: 0.68rem; color: var(--electric-teal); }
-
-/* Bank Preview */
-.bank-vault-laser {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 4px;
-}
-
-.bank-vault-laser i {
-    font-size: 1.8rem;
-    color: var(--holo-ultraviolet);
-    filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.5));
-}
-
-.bank-vault-laser span { font-family: var(--font-mono); font-size: 0.68rem; color: #ffffff; }
-.bank-hud-readout { font-family: var(--font-mono); font-size: 0.68rem; color: var(--electric-teal); }
-
-/* Hover Overlay */
-.trans-hover-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(3, 6, 12, 0.88);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--snap-fast);
-    z-index: 5;
-}
-
-.trans-wireframe-box:hover .trans-hover-overlay {
-    opacity: 1;
-}
-
-.btn-inspect-packet {
-    font-family: var(--font-heading);
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.12);
-    border: 1px solid var(--laser-cyan);
-    padding: 8px 16px;
-    letter-spacing: 0.06em;
-    box-shadow: 0 0 16px var(--laser-cyan-glow);
-    transition: all var(--snap-fast);
-}
-
-.btn-inspect-packet:hover {
-    background: var(--laser-cyan);
-    color: var(--void-black);
-}
-
-/* Transmission Body */
-.trans-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-}
-
-.trans-title {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.trans-classification {
-    font-size: 0.86rem;
-    color: var(--text-data);
-    line-height: 1.6;
-    margin-bottom: 16px;
-    flex: 1;
-}
-
-.trans-tags-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 20px;
-}
-
-.trans-tag {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.06);
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    padding: 2px 8px;
-}
-
-.trans-actions-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.btn-trans-repo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: var(--text-data);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--circuit-border);
-    padding: 8px;
-    transition: all var(--snap-fast);
-}
-
-.btn-trans-repo:hover {
-    border-color: var(--laser-cyan);
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.08);
-}
-
-.btn-trans-inspect {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.08);
-    border: 1px solid var(--laser-cyan);
-    padding: 8px;
-    transition: all var(--snap-fast);
-}
-
-.btn-trans-inspect:hover {
-    background: var(--laser-cyan);
-    color: var(--void-black);
-    box-shadow: 0 0 16px var(--laser-cyan-glow);
-}
-
-/* --------------------------------------------------------------------------
-   10. 4. ENCRYPTED SIGNAL / TRANSMISSION DECK (CONTACT)
-   -------------------------------------------------------------------------- */
-.deck-split-grid {
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 36px;
-}
-
-.console-status-strip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
-    margin-bottom: 20px;
-}
-
-.beacon-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--electric-teal);
-    box-shadow: 0 0 10px var(--electric-teal);
-}
-
-.console-title {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--laser-cyan);
-    letter-spacing: 0.06em;
-}
-
-.hud-signal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.form-dual-inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.signal-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.signal-label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--laser-cyan);
-}
-
-.signal-input {
-    background: rgba(3, 6, 12, 0.9);
-    border: 1px solid var(--circuit-border);
-    padding: 12px 14px;
-    font-family: var(--font-mono);
-    font-size: 0.86rem;
-    color: #ffffff;
-    outline: none;
-    transition: all var(--snap-fast);
-}
-
-.signal-input:focus {
-    border-color: var(--laser-cyan);
-    box-shadow: 0 0 16px var(--laser-cyan-glow);
-    background: #020408;
-}
-
-.signal-select { cursor: pointer; }
-.signal-select option { background: #060B16; color: #ffffff; }
-
-.signal-textarea { resize: vertical; min-height: 95px; }
-
-.signal-telemetry-log {
-    background: #03060C;
-    border: 1px solid rgba(0, 229, 255, 0.12);
-    padding: 10px 14px;
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--text-muted);
-}
-
-.log-prompt { color: var(--laser-cyan); font-weight: 700; margin-right: 6px; }
-
-.btn-dispatch-signal {
-    align-self: flex-start;
-}
-
-/* Right Telemetry Column */
-.deck-telemetry-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.frequency-readouts-box {
-    background: rgba(3, 6, 12, 0.6);
-    border: 1px solid var(--circuit-border);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.box-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--laser-cyan);
-    border-bottom: 1px solid rgba(0, 229, 255, 0.1);
-    padding-bottom: 8px;
-}
-
-.freq-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.freq-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 229, 255, 0.08);
-    border: 1px solid var(--laser-cyan);
-    color: var(--laser-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-}
-
-.freq-data { flex: 1; }
-.freq-lbl { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); display: block; }
-.freq-val { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: #ffffff; }
-.freq-val:hover { color: var(--laser-cyan); text-shadow: 0 0 10px var(--laser-cyan); }
-
-.btn-copy-freq {
-    width: 34px;
-    height: 34px;
-    background: rgba(0, 229, 255, 0.06);
-    border: 1px solid var(--circuit-border);
-    color: var(--laser-cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    transition: all var(--snap-fast);
-}
-
-.btn-copy-freq:hover { border-color: var(--laser-cyan); box-shadow: 0 0 10px var(--laser-cyan-glow); }
-
-.freq-code {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    padding: 2px 6px;
-}
-
-/* Social Transmitters */
-.social-transmitters-box {
-    background: rgba(3, 6, 12, 0.6);
-    border: 1px solid var(--circuit-border);
-    padding: 24px;
-}
-
-.transmitters-row {
-    display: flex;
-    gap: 12px;
-}
-
-.hud-square-btn {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--circuit-border);
-    background: rgba(0, 229, 255, 0.04);
-    color: var(--text-data);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.15rem;
-    transition: all var(--snap-fast);
-}
-
-.hud-square-btn:hover {
-    border-color: var(--laser-cyan);
-    color: var(--laser-cyan);
-    background: rgba(0, 229, 255, 0.12);
-    box-shadow: 0 0 16px var(--laser-cyan-glow);
-    transform: translateY(-2px);
-}
-
-.hud-btn-tip {
-    position: absolute;
-    bottom: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    background: #020408;
-    border: 1px solid var(--circuit-border);
-    color: var(--laser-cyan);
-    padding: 1px 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--snap-fast);
-}
-
-.hud-square-btn:hover .hud-btn-tip { opacity: 1; }
-
-/* --------------------------------------------------------------------------
-   11. HOLOGRAPHIC FOOTER
-   -------------------------------------------------------------------------- */
-.hud-footer {
-    border-top: 1px solid var(--circuit-border);
-    background: rgba(3, 6, 12, 0.95);
-    padding: 24px;
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--text-muted);
-    position: relative;
-    z-index: 10;
-}
-
-.footer-frame-container {
-    max-width: var(--hud-max-width);
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.footer-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-system-tag { color: var(--laser-cyan); font-weight: 700; }
-
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.status-lamp {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--electric-teal);
-    box-shadow: 0 0 6px var(--electric-teal);
-}
-
-.btn-top-laser {
-    color: var(--laser-cyan);
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    padding: 2px 8px;
-    transition: all var(--snap-fast);
-}
-
-.btn-top-laser:hover {
-    background: var(--laser-cyan);
-    color: var(--void-black);
-}
-
-/* --------------------------------------------------------------------------
-   12. HOLOGRAPHIC DATA PACKET DOSSIER MODAL
-   -------------------------------------------------------------------------- */
-.hud-modal {
-    border: none;
-    background: transparent;
-    max-width: 860px;
-    width: 92%;
-    margin: auto;
-    padding: 0;
-    overflow: visible;
-}
-
-.hud-modal::backdrop {
-    background: rgba(3, 6, 12, 0.88);
-    backdrop-filter: blur(16px);
-}
-
-.hud-modal-container {
-    background: #060B16;
-    border: 1px solid var(--laser-cyan);
-    box-shadow: 0 0 50px rgba(0, 229, 255, 0.3);
-    position: relative;
-    padding: 32px;
-}
-
-.hud-modal-topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-    padding-bottom: 12px;
-    margin-bottom: 24px;
-}
-
-.modal-badge {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--laser-cyan);
-    letter-spacing: 0.1em;
-}
-
-.hud-modal-close {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #EF4444;
-    border: 1px solid #EF4444;
-    padding: 4px 10px;
-    transition: all var(--snap-fast);
-}
-
-.hud-modal-close:hover {
-    background: #EF4444;
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
-}
-
-.hud-modal-body {
-    max-height: 75vh;
-    overflow-y: auto;
-}
-
-@keyframes pulseBeacon {
-    0% { transform: scale(0.95); opacity: 0.8; }
-    50% { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-/* --------------------------------------------------------------------------
-   13. RESPONSIVE MEDIA QUERIES
-   -------------------------------------------------------------------------- */
+  max-width: 100%;
+  display: block;
+}
+
+/* Custom Editorial Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.22s var(--ease-editorial), border-color 0.3s ease;
+  opacity: 0.5;
+}
+
+body.hovering .custom-cursor {
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent-red);
+  opacity: 0.85;
+}
+
+body.hovering .custom-cursor-follower {
+  width: 64px;
+  height: 64px;
+  opacity: 0.2;
+}
+
+/* Navigation Bar */
+.editorial-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(232, 228, 220, 0.7);
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: padding 0.3s ease, background 0.3s ease;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.nav-brand-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-live-clock {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+
+.nav-item a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: var(--accent-red);
+  transition: width 0.3s var(--ease-editorial);
+}
+
+.nav-item a:hover {
+  color: var(--text-main);
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.65rem 1.4rem;
+  background-color: var(--accent-red);
+  color: #FFFFFF;
+  border-radius: 100px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.25s var(--ease-editorial), background-color 0.25s ease;
+}
+
+.nav-cta:hover {
+  background-color: var(--accent-red-hover);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-main);
+  transition: 0.3s ease;
+}
+
+/* 3D WebGL Canvas Layer (Fixed in background or right hemisphere) */
+#canvas-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 55vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: auto;
+  transition: opacity 0.5s ease;
+}
+
+#canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  outline: none;
+}
+
+.canvas-hint {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.canvas-hint-pulse {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Main Content Container */
+.main-wrapper {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+}
+
+/* Section Common Styles */
+.editorial-section {
+  position: relative;
+  padding: 8rem 3rem 6rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-tag::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background-color: var(--accent-red);
+}
+
+/* ==========================================================================
+   SECTION 1: HERO
+   ========================================================================== */
+.hero-section {
+  min-height: 100vh;
+  padding: 7rem 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 50vw;
+  margin-top: 2rem;
+}
+
+.hero-issue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  padding: 0.35rem 0.85rem;
+  background: var(--bg-surface);
+  margin-bottom: 1.5rem;
+}
+
+.hero-issue-badge span.red-text {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.hero-name-block {
+  margin-bottom: 2rem;
+}
+
+.hero-name-primary {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7.8vw, 8.8rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  display: block;
+  word-break: break-word;
+}
+
+.hero-name-secondary {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 6.8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  display: block;
+}
+
+.hero-titles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.hero-titles .title-divider {
+  color: var(--accent-red);
+  font-weight: 900;
+}
+
+.hero-titles .title-highlight {
+  color: var(--accent-red);
+}
+
+.hero-bio {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 42ch;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: var(--accent-red);
+  color: #FFFFFF;
+  padding: 1.1rem 2.2rem;
+  border-radius: 2px;
+  transition: all 0.3s var(--ease-editorial);
+}
+
+.btn-editorial-primary:hover {
+  background-color: var(--accent-red-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(229, 35, 46, 0.25);
+  color: #FFFFFF;
+}
+
+.btn-editorial-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: var(--text-main);
+  padding: 1.1rem 2.2rem;
+  border: 1px solid var(--text-main);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease-editorial);
+}
+
+.btn-editorial-secondary:hover {
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+.hero-footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid var(--border-light);
+  padding-top: 2rem;
+  margin-top: 4rem;
+  max-width: 48vw;
+}
+
+.hero-meta-col {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.hero-meta-col strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SECTION 2: ABOUT / PHILOSOPHY
+   ========================================================================== */
+.about-section {
+  background-color: var(--bg-surface);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 52vw;
+}
+
+.about-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+}
+
+.about-headline span.accent {
+  color: var(--accent-red);
+}
+
+.about-editorial-text p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.about-editorial-text p.lead {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.about-specs-table {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-light);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.spec-label {
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.spec-value {
+  color: var(--text-main);
+  font-weight: 700;
+  text-align: right;
+}
+
+.spec-value.highlight {
+  color: var(--accent-red);
+}
+
+/* ==========================================================================
+   SECTION 3: SKILLS / TECHNICAL MATRIX
+   ========================================================================== */
+.skills-section {
+  background-color: var(--bg-primary);
+}
+
+.skills-wrapper {
+  max-width: 52vw;
+}
+
+.skills-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 3.5rem;
+}
+
+.skills-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.skill-category-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: 2.25rem 2rem;
+  transition: transform 0.3s var(--ease-editorial), border-color 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-red);
+}
+
+.skill-cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.skill-cat-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.skill-cat-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg-secondary);
+  color: var(--text-main);
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.skill-category-card:hover .skill-pill:hover {
+  background: var(--accent-red);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   SECTION 4: PROJECTS / ARCHIVES (6 REAL WORKS)
+   ========================================================================== */
+.works-section {
+  background-color: var(--bg-surface);
+}
+
+.works-wrapper {
+  max-width: 58vw;
+}
+
+.works-header-block {
+  margin-bottom: 4rem;
+}
+
+.works-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.4vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.works-sub {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.works-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-item {
+  border-top: 1px solid var(--border-light);
+  padding: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease, padding-left 0.3s var(--ease-editorial);
+  position: relative;
+}
+
+.work-item:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.work-item:hover {
+  padding-left: 1.5rem;
+  background: rgba(243, 239, 232, 0.4);
+}
+
+.work-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.work-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.work-index {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.work-category {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.work-link-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-editorial);
+  color: var(--text-main);
+}
+
+.work-item:hover .work-link-icon {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: #FFFFFF;
+  transform: translate(4px, -4px);
+}
+
+.work-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 3.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 0.85rem;
+  transition: color 0.25s ease;
+}
+
+.work-item:hover .work-title {
+  color: var(--accent-red);
+}
+
+.work-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 48ch;
+  margin-bottom: 1.25rem;
+}
+
+.work-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.stack-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SECTION 5: CONTACT / EDITORIAL FINALE
+   ========================================================================== */
+.contact-section {
+  background-color: var(--bg-primary);
+  padding-bottom: 4rem;
+}
+
+.contact-wrapper {
+  max-width: 55vw;
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.2vw, 6.4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 1.5rem;
+}
+
+.contact-sub {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 44ch;
+  margin-bottom: 3.5rem;
+}
+
+.contact-channels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.contact-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s var(--ease-editorial);
+}
+
+.contact-box:hover {
+  border-color: var(--accent-red);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+.contact-box-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.contact-box-val {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-box:hover .contact-box-val {
+  color: var(--accent-red);
+}
+
+.contact-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.75rem 0;
+  margin-bottom: 4rem;
+}
+
+.social-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+.social-link:hover {
+  color: var(--accent-red);
+}
+
+/* Footer */
+.editorial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-main);
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.back-to-top:hover {
+  color: var(--accent-red);
+}
+
+/* Loading Overlay */
+.editorial-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.editorial-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-brand {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--accent-red);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.loader-bar-wrap {
+  width: 200px;
+  height: 2px;
+  background: var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--accent-red);
+  transition: width 0.3s ease;
+}
+
+.loader-text {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Fallback procedural character mesh notice */
+.fallback-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-light);
+  padding: 0.2rem 0.5rem;
+  color: var(--text-light);
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
 @media (max-width: 1024px) {
-    .dossier-grid-layout {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .spec-block {
-        text-align: left;
-    }
-    .sectors-matrix-grid {
-        grid-template-columns: 1fr;
-    }
-    .deck-split-grid {
-        grid-template-columns: 1fr;
-    }
+  .editorial-nav {
+    padding: 1.25rem 2rem;
+  }
+  
+  .nav-meta {
+    display: none;
+  }
+  
+  #canvas-container {
+    width: 50vw;
+  }
+
+  .hero-content, .about-grid, .skills-wrapper, .works-wrapper, .contact-wrapper {
+    max-width: 55vw;
+  }
 }
 
 @media (max-width: 768px) {
-    .hud-nav-menu {
-        position: fixed;
-        top: 75px;
-        left: 20px;
-        right: 20px;
-        background: #060B16;
-        border: 1px solid var(--laser-cyan);
-        padding: 20px;
-        display: none;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
-    }
-    .hud-nav-menu.active {
-        display: block;
-    }
-    .hud-nav-links {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-    .hud-mobile-toggle {
-        display: flex;
-    }
-    .projector-telemetry-overlay {
-        display: none;
-    }
-    .hero-telemetry-strip {
-        display: none;
-    }
-    .form-dual-inputs {
-        grid-template-columns: 1fr;
-    }
+  .custom-cursor, .custom-cursor-follower {
+    display: none !important;
+  }
+  
+  .editorial-nav {
+    padding: 1rem 1.5rem;
+  }
+  
+  .nav-links, .nav-cta {
+    display: none;
+  }
+  
+  .nav-mobile-toggle {
+    display: flex;
+  }
+
+  .editorial-section {
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  /* Reposition canvas on mobile to sit behind or top */
+  #canvas-container {
+    width: 100vw;
+    height: 50vh;
+    top: 3.5rem;
+    right: 0;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .hero-content, .about-grid, .skills-wrapper, .works-wrapper, .contact-wrapper {
+    max-width: 100%;
+  }
+
+  .hero-content {
+    margin-top: 45vh;
+  }
+
+  .hero-footer-meta {
+    max-width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-grid, .skills-matrix-grid, .contact-channels {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-social-strip {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .editorial-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
 }
 
-    </style>
+
+  /* Mobile Fullscreen Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #FAF9F6;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .mobile-menu-nav a {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-main);
+  }
+  .mobile-menu-nav a:hover {
+    color: var(--accent-red);
+  }
+  .mobile-menu-footer {
+    margin-top: 3rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  </style>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+<body>
 
-<body class="cyber-void">
-    <!-- Scanline Shaders & Digital Noise Overlay -->
-    <div class="hologram-scanlines" aria-hidden="true"></div>
-    <div class="laser-vignette" aria-hidden="true"></div>
+  <!-- Loading Animation Overlay -->
+  <div class="editorial-loader" id="loader">
+    <div class="loader-brand">SIVARAMAKRISHNAN</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-text">INITIALIZING 3D SPATIAL ENGINE & ARCHIVES</div>
+  </div>
 
-    <!-- Laser Cursor Tracker, Reticle & Laser Coordinate Ray -->
-    <div class="hud-cursor-reticle" id="hudCursor" aria-hidden="true">
-        <div class="reticle-ring"></div>
-        <div class="reticle-crosshair"></div>
-        <div class="reticle-coords" id="reticleCoords">X:00.00 Y:00.00 Z:00.00</div>
+  <!-- Custom Editorial Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Editorial Top Navigation Bar -->
+  <nav class="editorial-nav" aria-label="Main Navigation">
+    <a href="#hero" class="nav-brand" aria-label="Sivaramakrishnan Homepage">
+      <span class="nav-brand-dot"></span>
+      SIVARAMAKRISHNAN
+    </a>
+
+    <div class="nav-meta">
+      <span>[ FRONTEND × AI DESIGNER ]</span>
+      <span class="nav-live-clock" id="navClock">--:--:-- IST</span>
     </div>
 
-    <!-- Laser-Thin Glowing Progress Coordinate Line -->
-    <div class="cyber-laser-progress" id="laserProgress" aria-hidden="true"></div>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="#about">01 // Identity</a></li>
+      <li class="nav-item"><a href="#skills">02 // Expertise</a></li>
+      <li class="nav-item"><a href="#works">03 // Archives</a></li>
+      <li class="nav-item"><a href="#contact">04 // Inquiries</a></li>
+    </ul>
 
-    <!-- Viewport HUD Technical Corner Brackets -->
-    <div class="viewport-hud-frame" aria-hidden="true">
-        <div class="hud-corner top-left"><span>[ + ] LOC_01</span></div>
-        <div class="hud-corner top-right"><span>[ - ] HOLO.SYS_2026</span></div>
-        <div class="hud-corner bottom-left"><span>[ + ] SECTOR_IND</span></div>
-        <div class="hud-corner bottom-right"><span>[ - ] SEC.LEVEL.01</span></div>
+    <a href="#contact" class="nav-cta">
+      <span>Get in Touch</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+    </a>
+
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle Mobile Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-nav">
+      <a href="#hero">00 // Cover</a>
+      <a href="#about">01 // Identity</a>
+      <a href="#skills">02 // Expertise</a>
+      <a href="#works">03 // Archives (6 Works)</a>
+      <a href="#contact">04 // Inquiries</a>
+      <a href="./assets/resume.pdf" download="Sivaramakrishnan_Resume.pdf" style="color: var(--accent-red);">Download CV ↗</a>
     </div>
+    <div class="mobile-menu-footer">
+      <div>SIVARAMAKRISHNAN // PORTFOLIO VOL. 26</div>
+      <div>B.Tech Electrical & Electronics Engineering</div>
+      <div>sivar75@gmail.com</div>
+    </div>
+  </div>
 
-    <!-- ===================================
-         HUD VOLUMETRIC NAVIGATION DOCK
-         =================================== -->
-    <header class="hud-header">
-        <nav class="hud-nav-bar" aria-label="Volumetric HUD Navigation">
-            <a href="#hero" class="hud-brand" aria-label="Sivaramakrishnan Terminal Root">
-                <div class="brand-hex">
-                    <span class="hex-core">SR</span>
-                    <span class="hex-border"></span>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-id">SIVARAMAKRISHNAN</span>
-                    <span class="brand-meta"><span class="neon-dot"></span> HOLO.EMITTER // FREQ: 144.8 MHz</span>
-                </div>
+  <!-- Pinned 3D WebGL Canvas Layer -->
+  <aside id="canvas-container" aria-label="Interactive 3D Editorial Character Model">
+    <div class="canvas-hint">
+      <span class="canvas-hint-pulse"></span>
+      <span>Interactive 3D / Drag to Rotate</span>
+    </div>
+    <div class="fallback-badge">Procedural Mannequin Render</div>
+  </aside>
+
+  <!-- Scrollable Editorial Sections Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- ==========================================================================
+         SECTION 1: HERO / COVER
+         ========================================================================== -->
+    <section class="editorial-section hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-issue-badge">
+          <span>VOL. 26 // ISSUE 01</span>
+          <span class="red-text">● ARCHIVAL RELEASE</span>
+          <span>AUTONOMOUS SYSTEMS</span>
+        </div>
+
+        <div class="hero-name-block">
+          <h1 class="hero-name-primary">SIVARAMA</h1>
+          <span class="hero-name-secondary">KRISHNAN</span>
+        </div>
+
+        <div class="hero-titles">
+          <span>FRONTEND DEVELOPER</span>
+          <span class="title-divider">/</span>
+          <span class="title-highlight">GENERATIVE AI DESIGNER</span>
+          <span class="title-divider">/</span>
+          <span>CREATIVE CODER</span>
+        </div>
+
+        <p class="hero-bio">
+          Synthesizing high-performance frontend architecture and generative AI workflows with the precision of circuit-level electrical engineering. Dedicated to crafting spatial, fluid, and memorable digital products.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#works" class="btn-editorial-primary">
+            <span>Explore Archives</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+          </a>
+          <a href="./assets/resume.pdf" download="Sivaramakrishnan_Resume.pdf" class="btn-editorial-secondary">
+            <span>Curriculum Vitae</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer-meta">
+        <div class="hero-meta-col">
+          <strong>Academic Baseline</strong>
+          <span>B.Tech in Electrical & Electronics Engineering</span>
+        </div>
+        <div class="hero-meta-col">
+          <strong>Spatial Render</strong>
+          <span>Three.js WebGL / Real-time Rigging</span>
+        </div>
+        <div class="hero-meta-col">
+          <strong>Availability</strong>
+          <span>Open for High-Impact Roles 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: ABOUT / PHILOSOPHY
+         ========================================================================== -->
+    <section class="editorial-section about-section" id="about">
+      <div class="section-tag">01 // Architectural Identity & Narrative</div>
+
+      <div class="about-grid">
+        <div class="about-col-left">
+          <h2 class="about-headline">
+            WHERE ELECTRICAL <span class="accent">PRECISION</span> MEETS AVANT-GARDE FRONTEND CRAFT.
+          </h2>
+          <div class="about-editorial-text">
+            <p class="lead">
+              A developer who approaches digital interfaces the way an electrical engineer approaches a printed circuit board: zero tolerance for resistance, optimized signal paths, and unwavering structural integrity.
+            </p>
+            <p>
+              Holding a Bachelor of Technology in Electrical & Electronics Engineering, I transitioned my background in mathematical signal logic and hardware fundamentals into high-end creative web development. I focus on bridging spatial WebGL mathematics with human-centered, minimalist aesthetics.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-col-right">
+          <div class="about-specs-table">
+            <div class="spec-row">
+              <span class="spec-label">Academic Degree</span>
+              <span class="spec-value">B.Tech — Electrical & Electronics Engg. (70%)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Primary Disciplines</span>
+              <span class="spec-value highlight">Frontend Engineering & Generative AI Design</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Engineering Paradigm</span>
+              <span class="spec-value">Component Modularity & Zero-Defect Logic</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Target Performance</span>
+              <span class="spec-value highlight">60 FPS WebGL / Sub-100ms Interactions</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Location Base</span>
+              <span class="spec-value">Tamil Nadu, India // Worldwide Remote</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Inquiry Direct</span>
+              <span class="spec-value">sivar75@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: SKILLS / TECHNICAL MATRIX
+         ========================================================================== -->
+    <section class="editorial-section skills-section" id="skills">
+      <div class="section-tag">02 // Technical Matrix & Capabilities</div>
+
+      <div class="skills-wrapper">
+        <h2 class="skills-headline">
+          CURATED COMPETENCIES ACROSS MODERN CODE & AI LOGIC.
+        </h2>
+
+        <div class="skills-matrix-grid">
+          <!-- Card 1 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-title">Frontend Core Architecture</span>
+              <span class="skill-cat-num">01</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill">HTML5 Semantic DOM</span>
+              <span class="skill-pill">CSS3 & PostCSS</span>
+              <span class="skill-pill">Modern JavaScript (ESNext)</span>
+              <span class="skill-pill">React.js Ecosystem</span>
+              <span class="skill-pill">Tailwind CSS Systems</span>
+              <span class="skill-pill">Fluid Typography</span>
+              <span class="skill-pill">State Management</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-title">Spatial & Creative Computing</span>
+              <span class="skill-cat-num">02</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill">Three.js WebGL Engine</span>
+              <span class="skill-pill">GLTF 3D Rigging & Loaders</span>
+              <span class="skill-pill">Interactive Physics & Lerp</span>
+              <span class="skill-pill">Canvas 2D / 3D Graphics</span>
+              <span class="skill-pill">GSAP Scroll Choreography</span>
+              <span class="skill-pill">Micro-Interactions</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-title">Generative AI & System Logic</span>
+              <span class="skill-cat-num">03</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill">AI Prompt Architecture</span>
+              <span class="skill-pill">Generative UI Frameworks</span>
+              <span class="skill-pill">Python Data Scripting</span>
+              <span class="skill-pill">RESTful API Design</span>
+              <span class="skill-pill">Node.js Runtimes</span>
+              <span class="skill-pill">Automated Data Pipelines</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <span class="skill-cat-title">Tooling & Infrastructure</span>
+              <span class="skill-cat-num">04</span>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill">Git Distributed SCM</span>
+              <span class="skill-pill">Vite & Webpack Bundlers</span>
+              <span class="skill-pill">GitHub Pages & Actions</span>
+              <span class="skill-pill">Lighthouse 95+ Audit</span>
+              <span class="skill-pill">Cross-Browser Testing</span>
+              <span class="skill-pill">WCAG AA Accessibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: PROJECTS / ARCHIVES (6 REAL WORKS)
+         ========================================================================== -->
+    <section class="editorial-section works-section" id="works">
+      <div class="section-tag">03 // Selected Archives & Production Repositories</div>
+
+      <div class="works-wrapper">
+        <div class="works-header-block">
+          <h2 class="works-headline">SELECTED WORKS</h2>
+          <div class="works-sub">SIX AUTHENTIC PRODUCTION REPOSITORIES // 2024–2026</div>
+        </div>
+
+        <div class="works-list">
+
+          <!-- Project 01 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">01</span>
+                <span class="work-category">FinTech / Retail Platform</span>
+              </div>
+              <a href="https://github.com/sivasan18/smart-cashback" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View Smart Cashback POS repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <a href="https://github.com/sivasan18/smart-cashback" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">SMART CASHBACK POS</h3>
             </a>
-
-            <div class="hud-nav-menu" id="hudNavMenu">
-                <ul class="hud-nav-links">
-                    <li><a href="#hero" class="hud-link active"><span class="hud-bracket">[</span>ROOT<span class="hud-bracket">]</span></a></li>
-                    <li><a href="#identity" class="hud-link"><span class="hud-bracket">[</span>DOSSIER<span class="hud-bracket">]</span></a></li>
-                    <li><a href="#tech-matrix" class="hud-link"><span class="hud-bracket">[</span>TECH_MATRIX<span class="hud-bracket">]</span></a></li>
-                    <li><a href="#projects-showcase" class="hud-link"><span class="hud-bracket">[</span>TRANSMISSIONS<span class="hud-bracket">]</span></a></li>
-                    <li><a href="#transmission-deck" class="hud-link"><span class="hud-bracket">[</span>SIGNAL_DECK<span class="hud-bracket">]</span></a></li>
-                </ul>
+            <p class="work-description">
+              Advanced point-of-sale platform featuring instant automated cashback calculations, transaction ledger, and dynamic receipt generation for high-volume retail environments.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">JavaScript</span>
+              <span class="stack-tag">Tailwind CSS</span>
+              <span class="stack-tag">Node.js</span>
             </div>
+          </div>
 
-            <div class="hud-actions">
-                <button class="hud-btn-icon" id="audioToggleBtn" title="Toggle Audio Telemetry [Key: M]" aria-label="Toggle Audio">
-                    <i class="fas fa-volume-high"></i>
-                </button>
-                <a href="#transmission-deck" class="hud-btn-cta">
-                    <span class="btn-bracket">[</span>
-                    <span class="btn-label">TRANSMIT_SIGNAL</span>
-                    <span class="btn-bracket">]</span>
-                </a>
-                <button class="hud-mobile-toggle" id="hudMobileToggle" aria-label="Toggle Navigation Dock" aria-expanded="false">
-                    <span class="hud-bar"></span>
-                    <span class="hud-bar"></span>
-                    <span class="hud-bar"></span>
-                </button>
+          <!-- Project 02 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">02</span>
+                <span class="work-category">FinTech / ML Security Engine</span>
+              </div>
+              <a href="https://github.com/sivasan18/UPI-Fraud-Detection" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View UPI Fraud Detection repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-        </nav>
-    </header>
-
-    <main id="volumetric-terminal-root">
-        <!-- ===================================
-             3D HOLOGRAPHIC PROJECTOR (HERO SECTION)
-             =================================== -->
-        <section class="hud-section hero-projector-section" id="hero">
-            <!-- 3D Holographic Projector Stage with Volumetric Light Cone -->
-            <div class="hologram-projector-stage" id="projectorStage">
-                <!-- Volumetric Holographic Light Projection Cone -->
-                <div class="volumetric-light-cone" aria-hidden="true">
-                    <div class="cone-gradient"></div>
-                    <div class="cone-laser-lines"></div>
-                </div>
-
-                <!-- Three.js 3D Hologram Canvas -->
-                <canvas id="hologram3DCanvas" class="hologram-canvas"></canvas>
-
-                <!-- Circular Metallic Projector Base Ring -->
-                <div class="projector-emitter-base" aria-hidden="true">
-                    <div class="emitter-core-glow"></div>
-                    <div class="emitter-metallic-rim"></div>
-                    <div class="emitter-laser-ticks"></div>
-                </div>
-
-                <!-- Live Emitter Telemetry Stamps -->
-                <div class="projector-telemetry-overlay" aria-hidden="true">
-                    <div class="telemetry-box">
-                        <span class="t-tag">[COORD_STAMP]:</span>
-                        <span class="t-val cyan" id="vectorCoords">X:+00.00 Y:+00.00 Z:+01.00</span>
-                    </div>
-                    <div class="telemetry-box">
-                        <span class="t-tag">[EMITTER_STATUS]:</span>
-                        <span class="t-val teal">144.8 MHz // VOLUMETRIC_ACTIVE</span>
-                    </div>
-                    <div class="telemetry-box">
-                        <span class="t-tag">[HOLO_MESH]:</span>
-                        <span class="t-val">POLYGONAL NODE MATRIX</span>
-                    </div>
-                </div>
+            <a href="https://github.com/sivasan18/UPI-Fraud-Detection" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">UPI FRAUD DETECTION</h3>
+            </a>
+            <p class="work-description">
+              Real-time fraud detection and risk-scoring analysis engine for UPI transaction streams with automated anomaly flagging and security telemetry dashboards.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Machine Learning</span>
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">REST API</span>
             </div>
+          </div>
 
-            <!-- Hero Telemetry Overlay Content -->
-            <div class="hero-telemetry-content">
-                <div class="holo-status-pill">
-                    <span class="status-pulse-dot"></span>
-                    <span class="status-text">[HOLO.EMITTER: ONLINE // FREQ: 144.8 MHz]</span>
-                    <span class="status-divider">|</span>
-                    <span class="status-alert amber-txt">[SEC.LEVEL.01]</span>
-                </div>
-
-                <h1 class="hero-identity-headline">
-                    SIVARAMAKRISHNAN
-                </h1>
-
-                <div class="hero-specialization-badge">
-                    <span class="spec-bracket">[ + ]</span>
-                    <span class="spec-text">CYBERNETIC FRONTEND ARCHITECT × GENERATIVE AI DESIGNER</span>
-                    <span class="spec-bracket">[ - ]</span>
-                </div>
-
-                <p class="hero-mission-lead">
-                    Architecting high-performance volumetric web interfaces, zero-defect frontend systems, and intelligent generative AI design workflows with mathematical precision.
-                </p>
-
-                <!-- Hologram Projection Buttons -->
-                <div class="hero-projection-buttons">
-                    <a href="#projects-showcase" class="cyber-btn cyber-btn-primary">
-                        <span class="btn-laser-glow"></span>
-                        <span class="btn-bracket-left">[</span>
-                        <span class="btn-title">DEPLOY PROJECTS [TRANSMISSION 01]</span>
-                        <span class="btn-bracket-right">]</span>
-                    </a>
-
-                    <a href="./assets/resume.pdf" download="Sivaramakrishnan_CV.pdf" class="cyber-btn cyber-btn-secondary">
-                        <span class="btn-sweep-line"></span>
-                        <span class="btn-bracket-left">[</span>
-                        <span class="btn-title">DECRYPT CV [DATA PACKET]</span>
-                        <span class="btn-bracket-right">]</span>
-                    </a>
-                </div>
-
-                <!-- Micro Metric HUD Ticks -->
-                <div class="hero-telemetry-strip">
-                    <div class="strip-item">
-                        <span class="strip-lbl">TRANSMISSIONS:</span>
-                        <span class="strip-val cyan-txt">06 ACTIVE</span>
-                    </div>
-                    <div class="strip-item">
-                        <span class="strip-lbl">HARDWARE LOGIC:</span>
-                        <span class="strip-val">B.TECH (EEE)</span>
-                    </div>
-                    <div class="strip-item">
-                        <span class="strip-lbl">SPATIAL RENDER:</span>
-                        <span class="strip-val teal-txt">THREE.JS / WEBGL</span>
-                    </div>
-                    <div class="strip-item">
-                        <span class="strip-lbl">SYSTEM FREQ:</span>
-                        <span class="strip-val amber-txt">60.0 FPS</span>
-                    </div>
-                </div>
+          <!-- Project 03 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">03</span>
+                <span class="work-category">Utility / Enterprise Operations</span>
+              </div>
+              <a href="https://github.com/sivasan18/Integrated-Disconnection-Portal" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View Integrated Disconnection Portal repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-        </section>
-
-
-        <!-- ===================================
-             1. IDENTITY DOSSIER (ABOUT ME)
-             =================================== -->
-        <section class="hud-section identity-dossier-section" id="identity">
-            <div class="hud-section-header">
-                <div class="header-stamp">[DOSSIER_SYS: 01 // ARCHITECTURAL IDENTITY]</div>
-                <h2 class="header-title">IDENTITY <span class="cyan-neon">DOSSIER</span></h2>
-                <div class="header-laser-line"></div>
+            <a href="https://github.com/sivasan18/Integrated-Disconnection-Portal" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">INTEGRATED DISCONNECTION PORTAL</h3>
+            </a>
+            <p class="work-description">
+              Centralized enterprise workflow portal for managing utility service disconnections, automated customer notices, and end-to-end audit compliance tracking.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">Express</span>
+              <span class="stack-tag">MongoDB</span>
             </div>
+          </div>
 
-            <div class="dossier-hologram-card bento-hud-card" data-tilt>
-                <div class="hud-corner-bracket tl">[ + ]</div>
-                <div class="hud-corner-bracket tr">[ - ]</div>
-                <div class="hud-corner-bracket bl">[ - ]</div>
-                <div class="hud-corner-bracket br">[ + ]</div>
-
-                <div class="dossier-grid-layout">
-                    <!-- Holographic ID Card: Profile Photo with Scanlines & Targeting Reticle -->
-                    <div class="holo-id-badge-col">
-                        <div class="holo-id-frame">
-                            <div class="targeting-reticle"></div>
-                            <div class="reticle-laser-axis x-axis"></div>
-                            <div class="reticle-laser-axis y-axis"></div>
-                            <div class="holo-photo-scanlines"></div>
-                            <img src="./assets/profile.jpg" alt="Sivaramakrishnan - Cybernetic Frontend Architect" class="holo-profile-img">
-                            <div class="holo-id-tag">
-                                <span>[OPERATOR_ID: SR-75]</span>
-                                <span class="teal-txt">ONLINE</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dossier Specifications & Narrative -->
-                    <div class="dossier-intel-col">
-                        <div class="intel-header">
-                            <h3 class="intel-name">SIVARAMAKRISHNAN</h3>
-                            <span class="intel-role">[SPECIALIST: CYBERNETIC FRONTEND &amp; SPATIAL AI]</span>
-                        </div>
-
-                        <div class="intel-spec-blocks">
-                            <!-- Engineering Metrics -->
-                            <div class="spec-block">
-                                <span class="spec-tag">[ENGINEERING_METRICS]:</span>
-                                <div class="spec-body">
-                                    <strong class="spec-heading">B.Tech in Electrical and Electronics Engineering (70%)</strong>
-                                    <p class="spec-desc">Framed as <em>"Core Analytical Systems &amp; Hardware Logic"</em>. Applied signal efficiency, electrical state equations, and algorithmic discipline directly to modern web architecture.</p>
-                                </div>
-                            </div>
-
-                            <!-- Mission Directive -->
-                            <div class="spec-block">
-                                <span class="spec-tag">[MISSION_DIRECTIVE]:</span>
-                                <div class="spec-body">
-                                    <strong class="spec-heading">Ultra-Responsive Web Interfaces &amp; Next-Gen AI Design Workflows</strong>
-                                    <p class="spec-desc">Bridging zero-defect front-end engineering with spatial 3D interactivity, volumetric styling, and dynamic LLM interface synthesis.</p>
-                                </div>
-                            </div>
-
-                            <!-- Core Principles -->
-                            <div class="spec-block">
-                                <span class="spec-tag">[SYSTEM_PARAMETERS]:</span>
-                                <div class="spec-body">
-                                    <div class="parameters-pills-row">
-                                        <span class="param-pill"><i class="fas fa-microchip"></i> Hardware Precision</span>
-                                        <span class="param-pill"><i class="fas fa-cube"></i> Volumetric 3D</span>
-                                        <span class="param-pill"><i class="fas fa-wand-magic-sparkles"></i> Generative AI Logic</span>
-                                        <span class="param-pill"><i class="fas fa-gauge-high"></i> &lt; 16.6ms Latency</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <!-- Project 04 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">04</span>
+                <span class="work-category">Finance / Double-Entry Ledger</span>
+              </div>
+              <a href="https://github.com/sivasan18/Ledger-account-book" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View Ledger Account Book repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-        </section>
-
-
-        <!-- ===================================
-             2. HOLOGRAPHIC TECH MATRIX (SKILLS)
-             =================================== -->
-        <section class="hud-section tech-matrix-section" id="tech-matrix">
-            <div class="hud-section-header">
-                <div class="header-stamp">[TELEMETRY_SYS: 02 // SECTOR CAPABILITIES]</div>
-                <h2 class="header-title">HOLOGRAPHIC <span class="cyan-neon">TECH MATRIX</span></h2>
-                <div class="header-laser-line"></div>
+            <a href="https://github.com/sivasan18/Ledger-account-book" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">LEDGER ACCOUNT BOOK</h3>
+            </a>
+            <p class="work-description">
+              High-speed double-entry bookkeeping web application with debit/credit balance tracking, financial audit reports, and instant local storage synchronization.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">JavaScript</span>
+              <span class="stack-tag">LocalStorage API</span>
+              <span class="stack-tag">CSS Grid</span>
+              <span class="stack-tag">Chart.js</span>
             </div>
+          </div>
 
-            <!-- Floating Holographic Data Chips Organized by Sector -->
-            <div class="sectors-matrix-grid">
-
-                <!-- Sector Alpha: Frontend Core -->
-                <article class="sector-card bento-hud-card" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="sector-header">
-                        <span class="sector-badge cyan-txt">[SECTOR_ALPHA]</span>
-                        <span class="sector-status">100% OPERATIONAL</span>
-                    </div>
-                    <h3 class="sector-title">FRONTEND CORE</h3>
-                    <p class="sector-desc">Semantic, accessible, and reactive client architecture.</p>
-
-                    <div class="sector-chips-list">
-                        <div class="data-chip">
-                            <span class="chip-name">HTML5 Architecture</span>
-                            <span class="chip-metric">[ADV] 95%</span>
-                            <div class="chip-meter"><span style="width: 95%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">CSS3 / Tailwind Styling</span>
-                            <span class="chip-metric">[ADV] 92%</span>
-                            <div class="chip-meter"><span style="width: 92%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">JavaScript ES6+</span>
-                            <span class="chip-metric">[PRO] 90%</span>
-                            <div class="chip-meter"><span style="width: 90%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Responsive Design Architecture</span>
-                            <span class="chip-metric">[ADV] 94%</span>
-                            <div class="chip-meter"><span style="width: 94%;"></span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Sector Beta: Runtime & Operations -->
-                <article class="sector-card bento-hud-card" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="sector-header">
-                        <span class="sector-badge teal-txt">[SECTOR_BETA]</span>
-                        <span class="sector-status">100% OPERATIONAL</span>
-                    </div>
-                    <h3 class="sector-title">RUNTIME &amp; OPERATIONS</h3>
-                    <p class="sector-desc">Asynchronous pipelines, state orchestration &amp; APIs.</p>
-
-                    <div class="sector-chips-list">
-                        <div class="data-chip">
-                            <span class="chip-name">Node.js Engine</span>
-                            <span class="chip-metric">[PRO] 86%</span>
-                            <div class="chip-meter"><span style="width: 86%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Git &amp; GitHub Pipelines</span>
-                            <span class="chip-metric">[PRO] 88%</span>
-                            <div class="chip-meter"><span style="width: 88%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">RESTful APIs &amp; Endpoints</span>
-                            <span class="chip-metric">[PRO] 88%</span>
-                            <div class="chip-meter"><span style="width: 88%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Performance Profiling</span>
-                            <span class="chip-metric">[ADV] 90%</span>
-                            <div class="chip-meter"><span style="width: 90%;"></span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Sector Gamma: AI & Spatial Design -->
-                <article class="sector-card bento-hud-card" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="sector-header">
-                        <span class="sector-badge uv-txt">[SECTOR_GAMMA]</span>
-                        <span class="sector-status">100% OPERATIONAL</span>
-                    </div>
-                    <h3 class="sector-title">AI &amp; SPATIAL DESIGN</h3>
-                    <p class="sector-desc">Prompt engineering, generative tokens &amp; 3D WebGL.</p>
-
-                    <div class="sector-chips-list">
-                        <div class="data-chip">
-                            <span class="chip-name">AI Prompt Engineering</span>
-                            <span class="chip-metric">[ADV] 94%</span>
-                            <div class="chip-meter"><span style="width: 94%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Generative UI Systems</span>
-                            <span class="chip-metric">[ADV] 92%</span>
-                            <div class="chip-meter"><span style="width: 92%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Figma Spatial Prototyping</span>
-                            <span class="chip-metric">[PRO] 90%</span>
-                            <div class="chip-meter"><span style="width: 90%;"></span></div>
-                        </div>
-                        <div class="data-chip">
-                            <span class="chip-name">Three.js / WebGL Spatial</span>
-                            <span class="chip-metric">[ADV] 88%</span>
-                            <div class="chip-meter"><span style="width: 88%;"></span></div>
-                        </div>
-                    </div>
-                </article>
-
+          <!-- Project 05 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">05</span>
+                <span class="work-category">Productivity / Document Engine</span>
+              </div>
+              <a href="https://github.com/sivasan18/pdf-converter" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View PDF Converter repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-        </section>
-
-
-        <!-- ===================================
-             3. PROJECT HOLOGRAM SHOWCASE (THE 6 FEATURED MODULES)
-             =================================== -->
-        <section class="hud-section projects-showcase-section" id="projects-showcase">
-            <div class="hud-section-header">
-                <div class="header-stamp">[TRANSMISSION_SYS: 03 // 6 ACTIVE MODULES]</div>
-                <h2 class="header-title">PROJECT HOLOGRAM <span class="cyan-neon">SHOWCASE</span></h2>
-                <div class="header-laser-line"></div>
+            <a href="https://github.com/sivasan18/pdf-converter" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">INTELLIGENT PDF CONVERTER</h3>
+            </a>
+            <p class="work-description">
+              Versatile document processing tool converting PDF documents into structured text, images, and Markdown with client-side OCR parsing capabilities.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">PDFKit</span>
+              <span class="stack-tag">Canvas API</span>
+              <span class="stack-tag">JavaScript</span>
             </div>
+          </div>
 
-            <!-- Category Switcher -->
-            <div class="transmission-filters">
-                <button class="holo-filter-btn active" data-filter="all">[ALL_TRANSMISSIONS (6)]</button>
-                <button class="holo-filter-btn" data-filter="fintech">[FINTECH_PLATFORMS]</button>
-                <button class="holo-filter-btn" data-filter="security">[SECURITY_&amp;_ENTERPRISE]</button>
-                <button class="holo-filter-btn" data-filter="utility">[UTILITY_ENGINES]</button>
+          <!-- Project 06 -->
+          <div class="work-item">
+            <div class="work-item-top">
+              <div class="work-meta-left">
+                <span class="work-index">06</span>
+                <span class="work-category">Banking / Digital Workflow</span>
+              </div>
+              <a href="https://github.com/sivasan18/Bank-Account-Closure-Portal" target="_blank" rel="noopener noreferrer" class="work-link-icon" aria-label="View Bank Account Closure Portal repository on GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
             </div>
-
-            <!-- 6 Transmission Modules Grid -->
-            <div class="transmission-modules-grid">
-
-                <!-- TRANSMISSION 01: Smart Cashback POS -->
-                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 01</span>
-                        <span class="trans-status teal-txt">[ACTIVE // ONLINE]</span>
-                    </div>
-
-                    <!-- Holographic Wireframe Preview -->
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics pos-preview">
-                            <div class="cashback-laser-gauge">
-                                <div class="gauge-dial"><span>+18.4%</span></div>
-                                <span class="gauge-sub">INSTANT REWARDS</span>
-                            </div>
-                            <div class="pos-laser-columns">
-                                <i></i><i></i><i></i><i></i>
-                            </div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="1">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">Smart Cashback POS</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> Intelligent POS &amp; automated billing platform with cashback incentives. Executes real-time bill calculations and merchant settlement reconciliation.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">FinTech</span>
-                            <span class="trans-tag">Billing Engine</span>
-                            <span class="trans-tag">Dashboard</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/smart-cashback" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="1">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- TRANSMISSION 02: UPI Fraud Detection -->
-                <article class="transmission-card bento-hud-card" data-category="security" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 02</span>
-                        <span class="trans-status amber-txt">[SENTINEL // ACTIVE]</span>
-                    </div>
-
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics radar-preview">
-                            <div class="radar-hud-reticle">
-                                <div class="radar-scan-sweep"></div>
-                                <div class="radar-blip b1"></div>
-                                <div class="radar-blip b2"></div>
-                            </div>
-                            <div class="radar-hud-readout">RISK SCORE: 0.02% [CLEARED]</div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="2">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">UPI Fraud Detection</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> Real-time transactional fraud detection and automated security risk analysis engine for high-velocity payments and spoofed VPA addresses.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">AI/ML</span>
-                            <span class="trans-tag">FinTech Security</span>
-                            <span class="trans-tag">Fraud Detection</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/UPI-Fraud-Detection" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="2">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- TRANSMISSION 03: Integrated Disconnection Portal -->
-                <article class="transmission-card bento-hud-card" data-category="security" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 03</span>
-                        <span class="trans-status teal-txt">[WORKFLOW // DEPLOYED]</span>
-                    </div>
-
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics workflow-preview">
-                            <div class="wf-track-line">
-                                <div class="wf-circle active"><i class="fas fa-check"></i></div>
-                                <div class="wf-segment done"></div>
-                                <div class="wf-circle active"><i class="fas fa-arrows-rotate fa-spin"></i></div>
-                                <div class="wf-segment"></div>
-                                <div class="wf-circle"><i class="fas fa-shield"></i></div>
-                            </div>
-                            <div class="wf-hud-readout">SLA COMPLIANCE // 99.98%</div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="3">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">Integrated Disconnection Portal</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> Automated service disconnection and enterprise workflow management portal coordinating multi-department approval gates and equipment reclamation.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">Enterprise Portal</span>
-                            <span class="trans-tag">Workflow Automation</span>
-                            <span class="trans-tag">Service Management</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/Integrated-Disconnection-Portal" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="3">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- TRANSMISSION 04: Ledger Account Book -->
-                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 04</span>
-                        <span class="trans-status teal-txt">[LEDGER // BALANCED]</span>
-                    </div>
-
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics ledger-preview">
-                            <svg viewBox="0 0 160 50" class="ledger-laser-svg">
-                                <path d="M0,45 Q40,15 80,30 T160,8" fill="none" stroke="#00E5FF" stroke-width="2.5" />
-                                <path d="M0,45 Q40,15 80,30 T160,8 L160,50 L0,50 Z" fill="rgba(0, 229, 255, 0.15)" />
-                            </svg>
-                            <div class="ledger-hud-readout">BALANCE: ₹842,500.00 [ZERO_DRIFT]</div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="4">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">Ledger Account Book</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> Real-time digital ledger, personal/business expense tracker, and financial audit system with double-entry balancing and procedural charts.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">Finance</span>
-                            <span class="trans-tag">Accounting</span>
-                            <span class="trans-tag">Data Visualizations</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/Ledger-account-book" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="4">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- TRANSMISSION 05: PDF Converter -->
-                <article class="transmission-card bento-hud-card" data-category="utility" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 05</span>
-                        <span class="trans-status teal-txt">[WASM // SANDBOXED]</span>
-                    </div>
-
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics pdf-preview">
-                            <div class="pdf-laser-exchange">
-                                <div class="file-box red"><i class="fas fa-file-pdf"></i></div>
-                                <div class="laser-arrow"><i class="fas fa-angles-right"></i></div>
-                                <div class="file-box cyan"><i class="fas fa-file-code"></i></div>
-                            </div>
-                            <div class="pdf-hud-readout">CLIENT WASM // ZERO DATA LEAK</div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="5">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">PDF Converter</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> High-speed browser document processing, file conversion, and transformation utility with client-side WebAssembly execution for total privacy.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">Web App</span>
-                            <span class="trans-tag">Document Processing</span>
-                            <span class="trans-tag">Utility</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/pdf-converter" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="5">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- TRANSMISSION 06: Bank Account Closure Portal -->
-                <article class="transmission-card bento-hud-card" data-category="fintech" data-tilt>
-                    <div class="hud-corner-bracket tl">[ + ]</div>
-                    <div class="hud-corner-bracket tr">[ - ]</div>
-                    <div class="hud-corner-bracket bl">[ - ]</div>
-                    <div class="hud-corner-bracket br">[ + ]</div>
-                    <div class="card-scanline-laser"></div>
-
-                    <div class="trans-header">
-                        <span class="trans-id cyan-txt">TRANSMISSION 06</span>
-                        <span class="trans-status uv-txt">[ENCRYPTED // SECURE]</span>
-                    </div>
-
-                    <div class="trans-wireframe-box">
-                        <div class="wireframe-grid-canvas"></div>
-                        <div class="wireframe-graphics bank-preview">
-                            <div class="bank-vault-laser">
-                                <i class="fas fa-shield-halved"></i>
-                                <span>256-BIT AUDIT</span>
-                            </div>
-                            <div class="bank-hud-readout">COMPLIANCE // CLEARANCE READY</div>
-                        </div>
-                        <div class="trans-hover-overlay">
-                            <button class="btn-inspect-packet" data-transmission="6">
-                                <i class="fas fa-crosshairs"></i> INSPECT DATA PACKET
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="trans-body">
-                        <h3 class="trans-title">Bank Account Closure Portal</h3>
-                        <p class="trans-classification">
-                            <strong>Classification:</strong> High-security banking portal streamlining customer account liquidation, digital affidavit signatures, and regulatory compliance workflows.
-                        </p>
-
-                        <div class="trans-tags-row">
-                            <span class="trans-tag">FinTech</span>
-                            <span class="trans-tag">Security</span>
-                            <span class="trans-tag">Portal</span>
-                        </div>
-
-                        <div class="trans-actions-row">
-                            <a href="https://github.com/sivasan18/Bank-Account-Closure-Portal" target="_blank" rel="noopener noreferrer" class="btn-trans-repo">
-                                <i class="fab fa-github"></i> <span>REPOSITORY</span>
-                            </a>
-                            <button class="btn-trans-inspect" data-transmission="6">
-                                <i class="fas fa-terminal"></i> <span>SPEC DOSSIER</span>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-
+            <a href="https://github.com/sivasan18/Bank-Account-Closure-Portal" target="_blank" rel="noopener noreferrer">
+              <h3 class="work-title">BANK ACCOUNT CLOSURE PORTAL</h3>
+            </a>
+            <p class="work-description">
+              Secure banking operational portal handling identity verification workflows, multi-step customer approval, and ledger reconciliation for official account closures.
+            </p>
+            <div class="work-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Secure Auth</span>
+              <span class="stack-tag">REST APIs</span>
+              <span class="stack-tag">Tailwind CSS</span>
             </div>
-        </section>
+          </div>
 
-
-        <!-- ===================================
-             4. ENCRYPTED SIGNAL / TRANSMISSION DECK (CONTACT)
-             =================================== -->
-        <section class="hud-section signal-deck-section" id="transmission-deck">
-            <div class="hud-section-header">
-                <div class="header-stamp">[SIGNAL_SYS: 04 // DIRECT ENCRYPTED FREQUENCY]</div>
-                <h2 class="header-title">ENCRYPTED <span class="cyan-neon">SIGNAL DECK</span></h2>
-                <div class="header-laser-line"></div>
-            </div>
-
-            <!-- Terminal Deck Base Card -->
-            <div class="signal-deck-card bento-hud-card">
-                <div class="hud-corner-bracket tl">[ + ]</div>
-                <div class="hud-corner-bracket tr">[ - ]</div>
-                <div class="hud-corner-bracket bl">[ - ]</div>
-                <div class="hud-corner-bracket br">[ + ]</div>
-
-                <div class="deck-split-grid">
-                    <!-- Left: Terminal Input Console -->
-                    <div class="deck-console-col">
-                        <div class="console-status-strip">
-                            <span class="beacon-dot"></span>
-                            <span class="console-title">[TERMINAL_DIRECTIVE: AES-256 ENCRYPTED CONSOLE]</span>
-                        </div>
-
-                        <form class="hud-signal-form" id="signalConsoleForm" autocomplete="off">
-                            <div class="form-dual-inputs">
-                                <div class="signal-field">
-                                    <label for="opName" class="signal-label">[PARAM: OPERATOR_NAME]</label>
-                                    <input type="text" id="opName" name="name" class="signal-input" placeholder="Maya Lin // Engineering Lead" required>
-                                </div>
-                                <div class="signal-field">
-                                    <label for="opEmail" class="signal-label">[PARAM: EMAIL_FREQUENCY]</label>
-                                    <input type="email" id="opEmail" name="email" class="signal-input" placeholder="operator@enterprise.io" required>
-                                </div>
-                            </div>
-
-                            <div class="signal-field">
-                                <label for="opDirective" class="signal-label">[PARAM: DIRECTIVE (SUBJECT)]</label>
-                                <select id="opDirective" name="directive" class="signal-input signal-select">
-                                    <option value="Frontend Architecture">Frontend Architecture (React / Modern JS)</option>
-                                    <option value="Generative AI Protocol">Generative AI Protocol &amp; Spatial UI</option>
-                                    <option value="Senior Engineering Role">Senior Engineering Role // Staff IC</option>
-                                    <option value="Spatial 3D / WebGL">Spatial 3D / WebGL Engineering</option>
-                                    <option value="Technical Consultation">Technical Consultation &amp; Collaboration</option>
-                                </select>
-                            </div>
-
-                            <div class="signal-field">
-                                <label for="opPayload" class="signal-label">[PARAM: SIGNAL_PAYLOAD (MESSAGE)]</label>
-                                <textarea id="opPayload" name="message" rows="4" class="signal-input signal-textarea" placeholder="Input transmission payload, scope specifications, or timeline requirements..." required></textarea>
-                            </div>
-
-                            <!-- Live Feedback Console -->
-                            <div class="signal-telemetry-log" id="signalConsoleLog">
-                                <span class="log-prompt">&gt;</span> Signal console online. Awaiting payload dispatch...
-                            </div>
-
-                            <button type="submit" class="cyber-btn cyber-btn-primary btn-dispatch-signal" id="btnDispatchSignal">
-                                <span class="btn-laser-glow"></span>
-                                <i class="fas fa-satellite-dish"></i>
-                                <span>TRANSMIT SIGNAL PAYLOAD</span>
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Right: Frequency Readouts & Social Transmitters -->
-                    <div class="deck-telemetry-col">
-                        <div class="frequency-readouts-box">
-                            <span class="box-tag">[FREQUENCY_READOUTS]</span>
-
-                            <div class="freq-item">
-                                <div class="freq-icon"><i class="fas fa-envelope-open-text"></i></div>
-                                <div class="freq-data">
-                                    <span class="freq-lbl">FREQUENCY (EMAIL):</span>
-                                    <a href="mailto:sivar75@gmail.com" class="freq-val" id="emailVal">sivar75@gmail.com</a>
-                                </div>
-                                <button class="btn-copy-freq" id="btnCopyEmail" title="Copy channel frequency" aria-label="Copy Email">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-
-                            <div class="freq-item">
-                                <div class="freq-icon"><i class="fas fa-tower-broadcast"></i></div>
-                                <div class="freq-data">
-                                    <span class="freq-lbl">FREQUENCY (TEL):</span>
-                                    <a href="tel:+919876543210" class="freq-val">+91 9876543210</a>
-                                </div>
-                                <span class="freq-code amber-txt">IST // GMT+5:30</span>
-                            </div>
-
-                            <div class="freq-item">
-                                <div class="freq-icon"><i class="fas fa-location-crosshairs"></i></div>
-                                <div class="freq-data">
-                                    <span class="freq-lbl">SECTOR:</span>
-                                    <span class="freq-val">India // Global Deployment</span>
-                                </div>
-                                <span class="freq-code teal-txt">WORLDWIDE</span>
-                            </div>
-                        </div>
-
-                        <!-- Social Transmitters -->
-                        <div class="social-transmitters-box">
-                            <span class="box-tag">[SOCIAL_TRANSMITTERS]</span>
-                            <div class="transmitters-row">
-                                <a href="https://github.com/sivasan18" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="GitHub Repository">
-                                    <i class="fab fa-github"></i>
-                                    <span class="hud-btn-tip">GITHUB</span>
-                                </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="LinkedIn Neural ID">
-                                    <i class="fab fa-linkedin-in"></i>
-                                    <span class="hud-btn-tip">LINKEDIN</span>
-                                </a>
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hud-square-btn" aria-label="Twitter / X Feed">
-                                    <i class="fab fa-x-twitter"></i>
-                                    <span class="hud-btn-tip">TWITTER</span>
-                                </a>
-                                <a href="mailto:sivar75@gmail.com" class="hud-square-btn" aria-label="Direct Signal">
-                                    <i class="fas fa-paper-plane"></i>
-                                    <span class="hud-btn-tip">SIGNAL</span>
-                                </a>
-                                <a href="./assets/resume.pdf" download="Sivaramakrishnan_CV.pdf" class="hud-square-btn" aria-label="Download CV Dossier">
-                                    <i class="fas fa-file-pdf"></i>
-                                    <span class="hud-btn-tip">CV</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===================================
-         HOLOGRAPHIC FOOTER
-         =================================== -->
-    <footer class="hud-footer">
-        <div class="footer-frame-container">
-            <div class="footer-left">
-                <span class="footer-system-tag">[HOLO.SYS 2026]</span>
-                <span class="footer-copy">All rights reserved. Encrypted by Sivaramakrishnan.</span>
-            </div>
-            <div class="footer-right">
-                <span class="status-lamp"></span>
-                <span>VOLUMETRIC PROJECTION TERMINAL // STABLE</span>
-                <a href="#hero" class="btn-top-laser" aria-label="Return to Hero">[ROOT_TOP]</a>
-            </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- ===================================
-         HOLOGRAPHIC DATA PACKET DOSSIER MODAL
-         =================================== -->
-    <dialog class="hud-modal" id="packetDossierModal" aria-labelledby="packetModalTitle">
-        <div class="hud-modal-container">
-            <div class="hud-corner-bracket tl">[ + ]</div>
-            <div class="hud-corner-bracket tr">[ - ]</div>
-            <div class="hud-corner-bracket bl">[ - ]</div>
-            <div class="hud-corner-bracket br">[ + ]</div>
+    <!-- ==========================================================================
+         SECTION 5: CONTACT / EDITORIAL FINALE
+         ========================================================================== -->
+    <section class="editorial-section contact-section" id="contact">
+      <div class="section-tag">04 // Inquiries & Global Engagements</div>
 
-            <div class="hud-modal-topbar">
-                <span class="modal-badge">[TRANSMISSION_DATA_PACKET // DECRYPTED]</span>
-                <button class="hud-modal-close" id="modalCloseBtn" aria-label="Close Dossier">
-                    <i class="fas fa-xmark"></i> [ESC]
-                </button>
+      <div class="contact-wrapper">
+        <h2 class="contact-headline">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+        <p class="contact-sub">
+          Available for innovative frontend engineering roles, spatial web architectures, and generative AI design collaborations.
+        </p>
+
+        <div class="contact-channels">
+          <a href="mailto:sivar75@gmail.com" class="contact-box">
+            <span class="contact-box-label">Electronic Mail</span>
+            <div class="contact-box-val">
+              <span>sivar75@gmail.com</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </div>
+          </a>
 
-            <div class="hud-modal-body" id="packetModalBody">
-                <!-- Dynamically populated via script.js -->
+          <a href="tel:+919876543210" class="contact-box">
+            <span class="contact-box-label">Telephone Direct</span>
+            <div class="contact-box-val">
+              <span>+91 9876543210</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </div>
+          </a>
         </div>
-    </dialog>
 
-    <!-- Three.js (for 3D Volumetric Wireframe Emitter) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./script.js"></script>
+        <div class="contact-social-strip">
+          <a href="https://github.com/sivasan18" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span>GitHub Profile</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+          <a href="./assets/resume.pdf" download="Sivaramakrishnan_Resume.pdf" class="social-link" style="color: var(--accent-red);">
+            <span>Download Resume (PDF)</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+          <span class="social-link" style="color: var(--text-light); pointer-events: none;">
+            <span>Location: Tamil Nadu, India</span>
+          </span>
+        </div>
+
+        <footer class="editorial-footer">
+          <div>© 2026 SIVARAMAKRISHNAN. ARCHIVE EDITION.</div>
+          <div>B.TECH ELECTRICAL & ELECTRONICS ENGINEERING</div>
+          <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <span>Back to Surface</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+          </button>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Three.js & GLTF Loader CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- Main Editorial Script -->
+  <script src="./script.js"></script>
+
 </body>
-
 </html>

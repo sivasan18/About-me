@@ -1,92 +1,74 @@
-# SIVARAMAKRISHNAN // CYBERNETIC HOLOGRAPHIC TERMINAL
+# SIVARAMAKRISHNAN — IMMERSIVE 3D EDITORIAL PORTFOLIO
 
-A futuristic, cinematic **"Cybernetic Hologram"** portfolio website for **Sivaramakrishnan** — Cybernetic Frontend Architect & Generative AI Designer.
+A luxury, interactive **3D fashion-editorial portfolio website** for **Sivaramakrishnan** — Frontend Developer & Generative AI Designer.
+
+Inspired by contemporary high-fashion editorial layouts, oversized typographic architecture, and real-time interactive 3D WebGL character presentation.
 
 ---
 
-## 🌌 Aesthetic & Visual Identity
+## 🎨 Visual Identity & Aesthetic
 
-- **Theme**: Sci-Fi Cybernetic Hologram, holographic HUD, volumetric projection terminal.
-- **Color Grading**:
-  - **Deep Dark Void Background**: `#03060C` and `#060B16` with an ambient particle dust grid.
-  - **Hologram Beams & Glows**: Laser Cyan (`#00E5FF`), Electric Teal (`#00FFC2`), and Holographic Ultraviolet (`#8A2BE2`).
-  - **Accents**: Monospace amber alerts (`#FFB800`) and laser-thin glowing coordinate lines.
-- **Visual FX**:
-  - Volumetric holographic light projection emitting upward from a glowing base projector ring.
-  - Scanline shaders, subtle digital noise, and light chromatic aberration on hover.
-  - Crisp holographic HUD wireframes, crosshairs, coordinate stamps (`X/Y/Z`), and technical corner brackets (`[ + ]`, `[ - ]`).
+- **Design Philosophy**: Minimalist luxury fashion editorial, high contrast, generous whitespace, asymmetric layout.
+- **Color Palette**:
+  - **Background**: Warm Ivory & Subtle Editorial Paper (`#FAF9F6`, `#F3EFE8`)
+  - **Primary Red**: High-Fashion Vibrant Editorial Red (`#E5232E`)
+  - **Text Primary**: Deep Charcoal Black (`#111111`)
+  - **Supporting Text**: Muted Editorial Grey (`#666666`, `#999999`)
+  - **Hairlines & Borders**: Editorial Stone (`#E8E4DC`)
 - **Typography**:
-  - Headers: **Orbitron** (futuristic sci-fi display font).
-  - Telemetry & Data Tags: **JetBrains Mono** (sharp monospace).
-  - Body Text: **Inter** (high-contrast clean sans-serif).
+  - **Display / Headlines**: `Syne` (Oversized, heavy grotesque display font)
+  - **Editorial Accent**: `Playfair Display` (Classic editorial serif)
+  - **Body Text**: `Plus Jakarta Sans` (Clean, geometric readability)
+  - **Metadata & Telemetry**: `Space Mono` (Archival issue stamps, timestamps, coordinates)
 
 ---
 
-## 🛰️ 3D Holographic Projector (Hero Section)
+## 🧍 Interactive 3D Character (Hero & Scroll Journey)
 
-1. **Interactive 3D Holographic Emitter**:
-   - Circular metallic base ring at the bottom casting upward volumetric holographic light cones.
-   - Inside the light cone: A floating, rotating 3D wireframe cybernetic avatar / polygonal node matrix.
-   - Dynamic laser coordinate rays projecting towards the cursor with smooth spring damping.
-2. **Telemetry Overlay**:
-   - Hologram Status: `[HOLO.EMITTER: ONLINE // FREQ: 144.8 MHz]`
-   - Identity: `SIVARAMAKRISHNAN`
-   - Specialization: `CYBERNETIC FRONTEND ARCHITECT × GENERATIVE AI DESIGNER`
-   - Projection Buttons:
-     - Button 1: `DEPLOY PROJECTS [TRANSMISSION 01]`
-     - Button 2: `DECRYPT CV [DATA PACKET]`
-
----
-
-## 🔲 Holographic Data Modules (Sections)
-
-1. **Identity Dossier (About Me)**:
-   - **Holographic ID Card**: Sivaramakrishnan’s profile photo processed with a blue holographic scanline filter and targeting reticle.
-   - **Engineering Metrics**: B.Tech in Electrical and Electronics Engineering (70%) framed as *"Core Analytical Systems & Hardware Logic"*.
-   - **Mission Directive**: Crafting ultra-responsive web interfaces and next-generation AI design workflows.
-
-2. **Holographic Tech Matrix (Skills)**:
-   Floating holographic data chips organized by sector:
-   - **Sector Alpha (Frontend Core)**: HTML5, CSS3, JavaScript ES6+, Responsive Design Architecture.
-   - **Sector Beta (Runtime & Operations)**: Node.js, Git, GitHub, RESTful APIs, Performance Profiling.
-   - **Sector Gamma (AI & Spatial Design)**: AI Prompt Engineering, Generative UI Systems, Figma Prototyping.
-
-3. **Project Hologram Showcase (The 6 Featured Modules)**:
-   - **Transmission 01: Smart Cashback POS** (`https://github.com/sivasan18/smart-cashback`)
-     - *Classification*: Intelligent POS & automated billing platform with cashback incentives.
-     - *Tags*: `FinTech`, `Billing Engine`, `Dashboard`
-   - **Transmission 02: UPI Fraud Detection** (`https://github.com/sivasan18/UPI-Fraud-Detection`)
-     - *Classification*: Real-time transactional fraud detection and automated security risk analysis engine.
-     - *Tags*: `AI/ML`, `FinTech Security`, `Fraud Detection`
-   - **Transmission 03: Integrated Disconnection Portal**
-     - *Classification*: Automated service disconnection and enterprise workflow management portal.
-     - *Tags*: `Enterprise Portal`, `Workflow Automation`, `Service Management`
-   - **Transmission 04: Ledger Account Book**
-     - *Classification*: Real-time digital ledger, personal/business expense tracker, and financial audit system.
-     - *Tags*: `Finance`, `Accounting`, `Data Visualizations`
-   - **Transmission 05: PDF Converter** (`https://github.com/sivasan18/pdf-converter`)
-     - *Classification*: High-speed browser document processing, file conversion, and transformation utility.
-     - *Tags*: `Web App`, `Document Processing`, `Utility`
-   - **Transmission 06: Bank Account Closure Portal**
-     - *Classification*: High-security banking portal streamlining customer account liquidation and compliance workflows.
-     - *Tags*: `FinTech`, `Security`, `Portal`
-
-4. **Encrypted Signal / Transmission Deck (Contact)**:
-   - Terminal input console: Name, Email Frequency, Directive (Subject), Signal Payload (Message).
-   - Frequency Readouts: `sivar75@gmail.com` | `+91 9876543210` | Sector: `India`.
-   - Social Transmitters: Monospace HUD buttons for GitHub, LinkedIn, Twitter/X, and Direct Signal.
-   - Footer: `[HOLO.SYS 2026] All rights reserved. Encrypted by Sivaramakrishnan.`
+- **Engine**: Three.js WebGL with `THREE.GLTFLoader`
+- **Asset**: Rigged full-body contemporary male humanoid model (`assets/models/character.glb`)
+- **Lighting & Shadows**:
+  - Studio directional key light with soft shadow mapping
+  - Ambient warm ivory fill bounce
+  - Rim light for crisp silhouette definition
+  - Procedural soft radial ground contact shadow
+- **Interactive Dynamics**:
+  - **Idle Animation**: Natural relaxed breathing cadence via `THREE.AnimationMixer`
+  - **Mouse Tracking**: Real-time bone orientation (`Head`, `Neck`, `Spine`) smoothly following the user's cursor
+  - **User Drag**: Click and drag (or mobile swipe) to smoothly spin the character with inertial friction damping
+  - **Scroll Choreography**: Smooth camera zoom and character pose shifts synchronized with section transitions (Cover → Identity → Capabilities → Selected Archives → Inquiries)
+  - **Graceful Fallback**: Procedural architectural mannequin automatically renders if WebGL or external GLB model loading encounters latency or restrictions.
 
 ---
 
-## 💻 Local Testing & Deployment
+## 📂 Archival Sections
 
-To run locally:
-```bash
-python3 -m http.server 8000
-```
-Then visit **`http://localhost:8000`** in your browser.
+1. **Cover / Hero**:
+   - Oversized red editorial typography (`SIVARAMAKRISHNAN`)
+   - Professional identity tags: `Frontend Developer / Generative AI Designer / Creative Coder`
+   - Academic background indicator (`B.Tech Electrical & Electronics Engineering`)
+   - Primary action buttons: Explore Archives & Download CV
+2. **01 // Architectural Identity & Narrative**:
+   - Detailed philosophy translating electrical circuit precision and signal flow into modern zero-defect frontend architecture
+   - Editorial specifications table (Degree, Paradigm, Performance, Location)
+3. **02 // Technical Matrix & Capabilities**:
+   - 4-column curated competency matrix (Frontend Core, Spatial Computing, Generative AI & System Logic, Tooling & Infrastructure)
+4. **03 // Selected Archives (6 Production Repositories)**:
+   - **01: Smart Cashback POS** (FinTech / Retail Platform)
+   - **02: UPI Fraud Detection** (FinTech / ML Security Engine)
+   - **03: Integrated Disconnection Portal** (Utility / Enterprise Operations)
+   - **04: Ledger Account Book** (Finance / Double-Entry Ledger)
+   - **05: Intelligent PDF Converter** (Productivity / Document Engine)
+   - **06: Bank Account Closure Portal** (Banking / Digital Workflow)
+5. **04 // Inquiries & Engagements**:
+   - Direct interactive contact boxes (`sivar75@gmail.com`, `+91 9876543210`)
+   - Direct links to GitHub profile and downloadable resume
+   - Editorial copyright and smooth return-to-surface trigger
 
 ---
 
-&copy; 2026 Sivaramakrishnan. Encrypted with Precision & Volumetric Intelligence.
+## 🚀 Deployment & Compatibility
+
+- **Live URL**: [https://sivasan18.github.io/About-me/](https://sivasan18.github.io/About-me/)
+- **Repository**: [https://github.com/sivasan18/About-me](https://github.com/sivasan18/About-me)
+- **Zero-FOUC Guarantee**: Inline critical styles + external stylesheet compatibility with `.nojekyll` enabled for GitHub Pages.
